@@ -1,0 +1,112 @@
+@font-face {
+    font-family: "Material Icons";
+    font-style: normal;
+    font-weight: 400;
+    src: url(../fonts/MaterialIcons-Regular.ttf) format("truetype");
+}
+
+.material-icons {
+    font-family: "Material Icons";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "liga";
+    -webkit-font-feature-settings: "liga";
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    /* background-image: url(../img/bg-1.jpeg); */
+    /* background-image: linear-gradient(to top right, rgba(255, 0, 255, 0.2), rgba(255, 0, 0, 0.1)); */
+}
+
+main {
+    flex: 1 0 auto;
+    margin-top: 2em !important;
+}
+
+.text-icon {
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.nav-wrapper {
+    padding: 0 2em;
+}
+
+.icon-left-align {
+    vertical-align: middle;
+    margin-right: 0.5em;
+}
+
+.icon-right-align {
+    vertical-align: middle;
+    margin-left: 0.5em;
+}
+
+.sidenav-overlay {
+    z-index: 50 !important;
+}
+
+.sidenav {
+    z-index: 100 !important;
+}
+
+ul.tabs {
+    display: flex;
+}
+
+li.tab {
+   flex-basis: 33.33%;
+}
+
+.tabs .tab a {
+    color: #b71c1c;
+}
+
+.tab a.active {
+    font-weight: bold;
+}
+  
+.tabs .tab a:focus.active {
+    font-weight: bold;
+    background-color: #f3e5f5;
+}
+  
+.tabs .indicator {
+    background-color: #b71c1c;
+}
+
+.team-img {
+    width: 128px;
+    height: 128px;
+}
+
+.footer-container {
+    margin: 0 10%;
+    width: 85%;
+}
+
+.footer-git-icon {
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 5px;
+    vertical-align: text-bottom;
+    border-radius: 50%;
+}

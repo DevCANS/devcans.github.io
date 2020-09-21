@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DevCANS</title>
+
+    <link rel="icon" href="assets/img/logo.png" />
+    <link rel="stylesheet" href="assets/vendor/materialize/css/materialize.min.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+</head>
+
+<body>
+    <header>
+        <div class="navbar-fixed">
+            <nav class="red darken-4">
+                <div class="nav-wrapper">
+                    <a href="#!" class="brand-logo">DevCANS</a>
+                    <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="" class="waves-effect"><i class="material-icons left">layers</i>Repositories</a></li>
+                        <li><a href="" class="waves-effect"><i class="material-icons left">groups</i>Team</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <ul class="sidenav" id="mobile-menu">
+                <li><a href="" class="waves-effect"><i class="material-icons left">layers</i>Repositories</a></li>
+                <li><a href="" class="waves-effect"><i class="material-icons left">groups</i>Team</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="row center-align">
+            <h1 class="tooltipped" data-position="top" data-tooltip="Styles/Animations/Effects to be added">DevCANS</h1>
+        </div>
+        <div class="row">
+            <div class="col s12" style="margin-bottom: 2em;">
+                <ul class="tabs">
+                    <li class="tab col s3"><a class="active" href="#overview"><i class="material-icons icon-left-align">info</i>Overview</a></li>
+                    <li class="tab col s3"><a href="#repo"><i class="material-icons icon-left-align">layers</i>Repositories</a></li>
+                    <li class="tab col s3"><a href="#team"><i class="material-icons icon-left-align">groups</i>Team</a></li>
+                </ul>
+            </div>
+            <div id="overview" class="col s12">
+                <ul class="collapsible">
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">filter_1</i>Goal</div>
+                      <div class="collapsible-body">Our goal is to .....</div>
+                    </li>
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">filter_2</i>Heading 2</div>
+                      <div class="collapsible-body">Content 2</div>
+                    </li>
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">filter_3</i>Heading 3</div>
+                      <div class="collapsible-body">Content 3</div>
+                    </li>
+                  </ul>
+            </div>
+            <div id="repo" class="col s12">
+                <div class="card z-depth-1">
+                    <div class="card-content black-text">
+                        <span class="card-title">Collection of Repos.</span>
+                        <p>Little Info.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">GitHub Link</a>
+                    </div>
+                </div>
+            </div>
+            <div id="team" class="col s12">
+                <div class="card z-depth-1">
+                    <div class="card-content black-text">
+                        <img class="circle team-img tooltipped" src="assets/img/member-1.jpg" data-tooltip="Prince Raj">
+                        <img class="circle team-img tooltipped" src="assets/img/member-2.png" data-tooltip="Member 2">
+                        <img class="circle team-img tooltipped" src="assets/img/member-3.png" data-tooltip="Member 3">
+                        <img class="circle team-img tooltipped" src="assets/img/member-4.png" data-tooltip="Member 4">
+                        &nbsp; <b>....</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="page-footer grey darken-4">
+        <div class="container footer-container">
+            <div class="row">
+                <div class="col m4 s6">
+                    <h5 class="white-text">Footer Heading 1</h5>
+                    <p class="grey-text text-lighten-4">Content 1</p>
+                </div>
+                <div class="col m4 s6">
+                    <h5 class="white-text">Footer Heading 2</h5>
+                    <p class="grey-text text-lighten-4">Content 2</p>
+                </div>
+                <div class="col m4 s6">
+                    <h5 class="white-text"><i class="material-icons left">feedback</i>Feedback</h5>
+                    <p>We will be happy to hear from you</p>
+                    <a class="tooltipped" href="#!" data-position="top" data-tooltip="Opens a Modal">Give Feedback</a>
+                </div>
+            </div>
+            <div class="my-gap-10"></div>
+            <div class="row">
+                <div class="col m4 s6">
+                    &copy; <script>let d = new Date(); document.write(d.getFullYear())</script>
+                </div>
+                <div class="col m4 s6 push-m4">
+                    <a class="grey-text text-lighten-4" href="https://github.com/DevCans/" target="_blank"><img src="assets/img/github.png" class="footer-git-icon">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/vendor/jquery-3.4.1.min.js"></script>
+    <script src="assets/vendor/materialize/js/materialize.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
