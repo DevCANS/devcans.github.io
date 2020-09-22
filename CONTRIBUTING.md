@@ -132,7 +132,7 @@ compiler-installation-guidelines.md       is correct
 ## New Directory guidelines
 
 - Folder name should be in full lowercase. If the name has multiple words, separate them by dashes(-). (e.g. : `getting-started`)
-- We recommend adding files to existing directories as much as possible.
+- We recommend adding files to existing directories as much as possible (Take a look at **[folder structure](FOLDER-STRUCTURE.md)**).
 - New folder should contain `README.md` with proper description of the folder.
 - Use lowercase words with ```"-"``` as separator (spaces or ```"_"``` not allowed)
 - For instance
