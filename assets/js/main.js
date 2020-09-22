@@ -42,8 +42,8 @@ $(document).ready(function(){
     $(".collapsible").collapsible();
     $(".tooltipped").tooltip();
 
-    fetchRepos();
-    fetchTeam();
+    // fetchRepos();
+    // fetchTeam();
 });
 
 function fetchRepos(force = false) {
