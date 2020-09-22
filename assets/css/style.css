@@ -32,7 +32,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    /* background-image: url(../img/bg-1.jpeg); */
+    background-image: url(../img/bg-1.jpeg);
     /* background-image: linear-gradient(to top right, rgba(255, 0, 255, 0.2), rgba(255, 0, 0, 0.1)); */
 }
 
@@ -70,6 +70,7 @@ main {
 
 ul.tabs {
     display: flex;
+    border-radius: 4px;
 }
 
 li.tab {
@@ -91,11 +92,35 @@ li.tab {
   
 .tabs .indicator {
     background-color: #b71c1c;
+    padding: 2px;
+    border-radius: 2px;
+}
+
+ul.collapsible {
+    border-radius: 3px;
+}
+
+ul.collapsible .collapsible-body {
+    background: #eeeeee;
+}
+
+.scale-card {
+    transition: all 0.3s ease;
+}
+
+.scale-card:hover {
+    transform: scale(1.05);
 }
 
 .team-img {
     width: 128px;
     height: 128px;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.team-img:hover {
+    transform: scale(1.2);
 }
 
 .footer-container {
