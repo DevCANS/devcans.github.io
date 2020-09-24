@@ -150,7 +150,7 @@ function fetchTeam(force = false) {
 
 function updateTeam(data) {
     let container = $("#team").find(".card-content");
-    container.html();
+    container.html("");
     data.forEach(function(i) {
         let anchor = createElement("a", {href: i.html_url, target: "_blank"});
         anchor.append(createElement("img", {class: "circle team-img tooltipped", src: i.avatar_url, "data-tooltip": i.login}));
