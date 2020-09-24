@@ -42,8 +42,8 @@ $(document).ready(function(){
     $(".collapsible").collapsible();
     $(".tooltipped").tooltip();
 
-    // fetchRepos();
-    // fetchTeam();
+    fetchRepos();
+    fetchTeam();
 });
 
 function fetchRepos(force = false) {
@@ -55,6 +55,17 @@ function fetchRepos(force = false) {
     })
     .then(
         function(response) {
+            if (response.status == 304) {
+                try {
+                    let data = JSON.parse(ls.getKey("repo-data"));
+                    updateRepos(data);
+                    console.log("[LOCAL Repo] Loaded cached copy.");
+                } catch (e) {
+                    ls.removeKey("repo-etag");
+                    setTimeout(fetchRepos());
+                }
+                return;
+            }
             if (response.status !== 200) {
                 console.log("[FETCH Repo] Request failed!. Status Code: " + response.status);
                 return;
@@ -63,6 +74,7 @@ function fetchRepos(force = false) {
             response.json().then(function(data) {
                 try {
                     ls.setKey("repo-etag", response.headers.get("etag"));
+                    ls.setKey("repo-data", JSON.stringify(data));
                 } catch (e) {
                     console.log("[FETCH Repo] ETag Missing");
                 }
@@ -77,6 +89,7 @@ function fetchRepos(force = false) {
 }
 
 function updateRepos(data) {
+    $("#repo").html("");
     data.forEach(function(i) {
         let outerDiv = createElement("div", {class: "card z-depth-1 scale-card"});
         let div1 = createElement("div", {class: "card-content black-text"});
@@ -102,6 +115,17 @@ function fetchTeam(force = false) {
     })
     .then(
         function(response) {
+            if (response.status == 304) {
+                try {
+                    let data = JSON.parse(ls.getKey("team-data"));
+                    updateTeam(data);
+                    console.log("[LOCAL Team] Loaded cached copy.");
+                } catch (e) {
+                    ls.removeKey("team-etag");
+                    setTimeout(fetchTeam());
+                }
+                return;
+            }
             if (response.status !== 200) {
                 console.log("[FETCH Team] Request failed!. Status Code: " + response.status);
                 return;
@@ -110,6 +134,7 @@ function fetchTeam(force = false) {
             response.json().then(function(data) {
                 try {
                     ls.setKey("team-etag", response.headers.get("etag"));
+                    ls.setKey("team-data", JSON.stringify(data));
                 } catch (e) {
                     console.log("[FETCH Team] ETag Missing");
                 }
@@ -125,6 +150,7 @@ function fetchTeam(force = false) {
 
 function updateTeam(data) {
     let container = $("#team").find(".card-content");
+    container.html();
     data.forEach(function(i) {
         let anchor = createElement("a", {href: i.html_url, target: "_blank"});
         anchor.append(createElement("img", {class: "circle team-img tooltipped", src: i.avatar_url, "data-tooltip": i.login}));
