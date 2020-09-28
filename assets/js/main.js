@@ -107,7 +107,7 @@ function updateRepos(data) {
 }
 
 function fetchTeam(force = false) {
-    fetch("https://api.github.com/orgs/devCANS/members", {
+    fetch("https://api.github.com/orgs/devCANS/public_members", {
         headers: {
             "Accept": "application/vnd.github.v3+json",
             "If-None-Match": ls.getKey("team-etag")
