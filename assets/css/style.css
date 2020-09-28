@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,100,400');
+
 @font-face {
     font-family: "Material Icons";
     font-style: normal;
@@ -29,13 +31,12 @@ html {
 }
 
 body {
+    font-family: 'Raleway', sans-serif;
     display: flex;
     min-height: 100vh;
     width: 100%;
     flex-direction: column;
-    background-image: url(../img/bg-1.jpeg);
-    background-attachment: fixed;
-    /* background-image: linear-gradient(to top right, rgba(255, 0, 255, 0.2), rgba(255, 0, 0, 0.1)); */
+    background: #333;
 }
 
 main {
@@ -136,4 +137,48 @@ ul.collapsible .collapsible-body {
     margin-right: 5px;
     vertical-align: text-bottom;
     border-radius: 50%;
+}
+
+.brand-logo {
+    font-weight: 200;
+}
+
+.welcome-msg {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    color: #ccc;
+}
+
+.msg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 0 3rem;
+}
+
+.welcome {
+    height: 100vh;
+    margin-bottom: 2em;
+    background: #333 url('../img/bg-1.jpeg') no-repeat center center / cover;
+}
+
+h1, h2 {
+    font-weight: 500;
+    margin: 0.4rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    color: #eee;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #ccc;
+}
+
+/* Cursor */
+.txt-type > .txt {
+    border-right: 0.1rem solid #ccc;
 }
