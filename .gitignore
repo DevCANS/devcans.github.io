@@ -24,3 +24,8 @@ Thumbs.db
 .vscode
 .vs
 .idea
+
+# Extras
+.log
+temp.*
+tmp.*
