@@ -14,30 +14,35 @@
 </head>
 
 <body>
-    <header>
-        <div class="navbar-fixed">
-            <nav class="red darken-4">
-                <div class="nav-wrapper">
-                    <a href="#!" class="brand-logo">DevCANS</a>
-                    <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                    <ul class="right hide-on-med-and-down">
-                        <li><a href="" class="waves-effect"><i class="material-icons left">layers</i>Repositories</a></li>
-                        <li><a href="" class="waves-effect"><i class="material-icons left">groups</i>Team</a></li>
-                    </ul>
-                </div>
-            </nav>
-
-            <ul class="sidenav" id="mobile-menu">
-                <li><a href="" class="waves-effect"><i class="material-icons left">layers</i>Repositories</a></li>
-                <li><a href="" class="waves-effect"><i class="material-icons left">groups</i>Team</a></li>
-            </ul>
+    <div class="welcome">
+        <header>
+            <div class="navbar">
+                <nav class="transparent">
+                    <div class="nav-wrapper">
+                        <a href="#!" class="brand-logo">DevCans</a>
+                        <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                        <ul class="right hide-on-med-and-down">
+                            <li><a href="#main" class="waves-effect"><i class="material-icons left">layers</i>Repositories</a></li>
+                            <li><a href="" class="waves-effect"><i class="material-icons left">groups</i>Team</a></li>
+                        </ul>
+                    </div>
+                </nav>
+    
+                <ul class="sidenav" id="mobile-menu">
+                    <li><a href="" class="waves-effect"><i class="material-icons left">layers</i>Repositories</a></li>
+                    <li><a href="" class="waves-effect"><i class="material-icons left">groups</i>Team</a></li>
+                </ul>
+            </div>
+        </header>
+        <div class="container msg">
+            <h1>DevCans for&nbsp;<span class="txt-type" data-wait="3000" data-words='["Developers", "Coders", "Learners"]'></span>
+            </h1>
+            <h2>Welcome To DevCans</h2>
+            <p class="welcome-msg">To foster coding and developement skills as well as healty competitive environment.</p>
         </div>
-    </header>
+    </div>
 
-    <main class="container">
-        <div class="row center-align">
-            <h1 class="tooltipped white-text" data-position="top" data-tooltip="Styles/Animations/Effects to be added">DevCANS</h1>
-        </div>
+    <main class="container" id="main">
         <div class="row">
             <div class="col s12" style="margin-bottom: 2em;">
                 <ul class="tabs">
