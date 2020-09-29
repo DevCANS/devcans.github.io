@@ -178,7 +178,19 @@ h2 {
     color: #ccc;
 }
 
+.txt-type {
+    color: rgba(255, 255, 0, 0.8);
+}
+
 /* Cursor */
-.txt-type > .txt {
-    border-right: 0.1rem solid #ccc;
+.txt-type::after {
+    color: #fff;
+    content: "_";
+    animation: animate-cursor 1s infinite;
+}
+
+@keyframes animate-cursor {
+    75% {
+        content: "";
+    }
 }
