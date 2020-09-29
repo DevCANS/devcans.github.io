@@ -179,12 +179,12 @@ h2 {
 }
 
 .txt-type {
-    color: rgba(255, 255, 0, 0.8);
+    color: #FF5722;
 }
 
 /* Cursor */
 .txt-type::after {
-    color: #fff;
+    color: #FF5722;
     content: "_";
     animation: animate-cursor 1s infinite;
 }
