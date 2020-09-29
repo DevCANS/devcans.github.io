@@ -81,7 +81,7 @@ li.tab {
 }
 
 .tabs .tab a {
-    color: #b71c1c;
+    color: #B71C1C;
 }
 
 .tab a.active {
@@ -90,11 +90,11 @@ li.tab {
   
 .tabs .tab a:focus.active {
     font-weight: bold;
-    background-color: #f3e5f5;
+    background-color: #F3E5F5;
 }
   
 .tabs .indicator {
-    background-color: #b71c1c;
+    background-color: #B71C1C;
     padding: 2px;
     border-radius: 2px;
 }
@@ -104,7 +104,7 @@ ul.collapsible {
 }
 
 ul.collapsible .collapsible-body {
-    background: #eeeeee;
+    background: #EEE;
 }
 
 .scale-card {
@@ -170,15 +170,27 @@ h1, h2 {
 
 h1 {
     font-size: 3.5rem;
-    color: #eee;
+    color: #EEE;
 }
 
 h2 {
     font-size: 2rem;
-    color: #ccc;
+    color: #CCC;
+}
+
+.txt-type {
+    color: #FF5722;
 }
 
 /* Cursor */
-.txt-type > .txt {
-    border-right: 0.1rem solid #ccc;
+.txt-type::after {
+    color: #FF5722;
+    content: "_";
+    animation: animate-cursor 1s infinite;
+}
+
+@keyframes animate-cursor {
+    75% {
+        content: "";
+    }
 }
