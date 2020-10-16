@@ -163,6 +163,7 @@ ul.collapsible .collapsible-body {
     justify-content: center;
     height: 100%;
     padding: 0 3rem;
+    user-select: none;
 }
 
 .welcome {
@@ -201,4 +202,10 @@ h2 {
     75% {
         content: "";
     }
+}
+
+#particles-js{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
 }
