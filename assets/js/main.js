@@ -225,7 +225,7 @@ function setMember(info){
     memberInfoContent.appendChild(h4);
     let social = createElement("div", {class: "social"});
     social.innerHTML = `
-        <a href="${info.html_url} target="_"><i class="fa fa-github"></i></a>
+        <a href="${info.html_url}" target="_"><i class="fa fa-github"></i></a>
     `;
     memberInfoContent.appendChild(social);
     memberInfo.appendChild(memberInfoContent);
