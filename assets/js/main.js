@@ -53,8 +53,7 @@ function fetchRepos(force = false) {
             "Accept": "application/vnd.github.v3+json",
             "If-None-Match": ls.getKey("repo-etag")
         }
-    })
-    .then(
+    }).then(
         function(response) {
             if (response.status == 304) {
                 try {
@@ -83,27 +82,62 @@ function fetchRepos(force = false) {
                 updateRepos(data);
             });
         }
-    )
-    .catch(function(err) {
+    ).catch(function(err) {
         console.log("[FETCH Repo] Fetch Error!", err);
     });
 }
 
-function updateRepos(data) {
-    $("#repo").html("");
-    data.forEach(function(i) {
-        let outerDiv = createElement("div", {class: "card z-depth-1 scale-card"});
-        let div1 = createElement("div", {class: "card-content black-text"});
-        div1.append(createElement("span", {class: "card-title"}, i.full_name));
-        div1.append(createElement("p", {}, i.description));
-        let d = new Date(i.updated_at);
-        lastUpdated = formatDate(d.getDay()) + "-" + formatDate((d.getMonth() + 1)) + "-" + formatDate(d.getFullYear()) + ", " + formatDate(d.getHours()) + ":" + formatDate(d.getMinutes());
-        div1.append(createElement("p", {}, "<b>Last Updated:</b> " + lastUpdated))
-        let div2 = createElement("div", {class: "card-action"});
-        div2.append(createElement("a", {href: i.html_url}, "View on GitHub"));
-        outerDiv.append(div1);
-        outerDiv.append(div2);
-        $("#repo").append(outerDiv);
+function updateRepos(data){
+    const repoContainer = document.querySelector(".repo-container");
+    data.forEach((val) => {
+        // Creating Repo card
+        let repoItem = createElement("div", {class: "col-md-6 col-lg-4 repo-item"});
+        let box = createElement("div", {class: "box"});
+        let icon = createElement("div", {class: "icon"});
+        
+        // Fetching image for repository
+        let iconImg = val.name.split("-")[0].toLowerCase();
+        let imgSource = "";
+
+        if (iconImg === "website") {
+            // For devcans website repo
+            imgSource = "assets/img/icon.png"
+        } else {
+            if (iconImg === "web") {
+                iconImg = "html";
+            }
+            imgSource = `https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/${iconImg}/${iconImg}.png`;
+        }
+        icon.appendChild(createElement("img", {src: imgSource, class: "icon", style: "background: #FCEEF3;"}));
+        box.appendChild(icon);
+        let h3 = createElement("h3", {class: "title"});
+        h3.innerHTML = `
+            <a href="${val.html_url}" target="_">${val.name.replaceAll("-", " ").toUpperCase()}</a>
+        `;
+        box.appendChild(h3);
+        let p = createElement("p", {class: "description"});
+        p.innerHTML = val.description;
+        box.appendChild(p);
+        repoItem.appendChild(box);
+        repoContainer.appendChild(repoItem);
+    });
+
+    // Setting up listener for show more button
+    const button = document.querySelector(".more-btn");
+    button.addEventListener("click", () => {
+        button.childNodes[1].classList.toggle("more-btn-inactive");
+        let text = button.childNodes[3].textContent;
+
+        text == "Show More" ? text = "Show Less" : text = "Show More";
+        
+        button.childNodes[3].textContent = text;
+        button.childNodes[5].classList.toggle("more-btn-inactive");
+
+        if (button.childNodes[1].classList.contains("more-btn-inactive")) {
+            repoContainer.style.maxHeight = 350 + "px";
+        } else {
+            repoContainer.style.maxHeight = repoContainer.scrollHeight + "px";
+        }
     });
 }
 
@@ -113,8 +147,7 @@ function fetchTeam(force = false) {
             "Accept": "application/vnd.github.v3+json",
             "If-None-Match": ls.getKey("team-etag")
         }
-    })
-    .then(
+    }).then(
         function(response) {
             if (response.status == 304) {
                 try {
@@ -143,21 +176,63 @@ function fetchTeam(force = false) {
                 updateTeam(data);
             });
         }
-    )
-    .catch(function(err) {
+    ).catch(function(err) {
         console.log("[FETCH Team] Fetch Error!", err);
     });
 }
 
-function updateTeam(data) {
-    let container = $("#team").find(".card-content");
-    container.html("");
-    data.forEach(function(i) {
-        let anchor = createElement("a", {href: i.html_url, target: "_blank"});
-        anchor.append(createElement("img", {class: "circle team-img tooltipped", src: i.avatar_url, "data-tooltip": i.login}));
-        container.append(anchor);
+function updateTeam(data){
+    data.forEach((member) => {
+        if (ls.getKey(member.node_id) != null) {
+            // Fetching member info from local storage
+            info = JSON.parse(ls.getKey(member.node_id));
+            setMember(info);
+        } else {
+            // Fetching member info from github api
+            fetch(member.url, {
+                headers: {
+                    "Accept": "application/vnd.github.v3+json",
+                    "If-None-Match": ls.getKey("team-etag")
+                }
+            }).then((response) => {
+                if(response.status != 200){
+                    console.log("[Fetch Member Info] Status code" + response.status);
+                }
+    
+                response.json().then((info) => {
+                    // Saving member info to local storage
+                    ls.setKey(info.node_id, JSON.stringify(info));
+                    setMember(info)
+                });
+            }).catch(function(err) {
+                console.log("[FETCH Team] Fetch Error!", err);
+            });
+        }
+
     });
-    $(".tooltipped").tooltip();
+}
+
+function setMember(info){
+    // Creating member card
+    const teamContainer = document.querySelector(".team-container");
+    let outerDiv = createElement("div", {class: "col-lg-2 col-md-4"});
+    let member = createElement("div", {class: "member"});
+    let img = createElement("img",{class: "img-fluid", src: info.avatar_url});
+    let memberInfo = createElement("div", {class: "member-info"});
+    let memberInfoContent = createElement("div", {class: "member-info-content"});
+    let h4 = createElement("h4");
+    h4.innerHTML = info.name;
+    memberInfoContent.appendChild(h4);
+    let social = createElement("div", {class: "social"});
+    social.innerHTML = `
+        <a href="${info.html_url}" target="_"><i class="fa fa-github"></i></a>
+    `;
+    memberInfoContent.appendChild(social);
+    memberInfo.appendChild(memberInfoContent);
+    member.appendChild(img);
+    member.appendChild(memberInfo);
+    outerDiv.appendChild(member);
+    teamContainer.appendChild(outerDiv);
 }
 
 function createElement(tag, options = {}, html = "") {

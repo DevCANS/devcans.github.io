@@ -8,9 +8,12 @@
 
     <title>DevCANS</title>
 
-    <link rel="icon" href="assets/img/icon.png" />
-    <link rel="stylesheet" href="assets/vendor/materialize/css/materialize.min.css" type="text/css" />
-    <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+    <link href="assets/img/icon.png" rel="icon" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/vendor/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/materialize/css/materialize.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -19,18 +22,20 @@
             <div class="navbar">
                 <nav class="hoverable transparent">
                     <div class="nav-wrapper">
-                        <a href="index.html" class="brand-logo"><img src="assets/img/devcans-logo.png" class="brand-icon">DevCans</a>
+                        <a href="index.html" class="brand-logo waves-effect"><img src="assets/img/devcans-logo.png" class="brand-icon">DevCans</a>
                         <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                         <ul class="right hide-on-med-and-down">
-                            <li><a href="#main" class="waves-effect"><i class="material-icons left">layers</i>Repositories</a></li>
-                            <li><a href="#main" class="waves-effect"><i class="material-icons left">groups</i>Team</a></li>
+                            <li><a href="#about" class="waves-effect">About</a></li>
+                            <li><a href="#repositories" class="waves-effect">Resources</a></li>
+                            <li><a href="#team" class="waves-effect">Team</a></li>
                         </ul>
                     </div>
                 </nav>
     
                 <ul class="sidenav" id="mobile-menu">
-                    <li><a href="#main" class="waves-effect"><i class="material-icons left">layers</i>Repositories</a></li>
-                    <li><a href="#main" class="waves-effect"><i class="material-icons left">groups</i>Team</a></li>
+                    <li><a href="#about" class="waves-effect">About</a></li>
+                    <li><a href="#repositories" class="waves-effect">Resources</a></li>
+                    <li><a href="#team" class="waves-effect">Team</a></li>
                 </ul>
             </div>
         </header>
@@ -43,68 +48,116 @@
         </div>
     </div>
 
-    <main class="container" id="main">
-        <div class="row">
-            <div class="col s12" style="margin-bottom: 2em;">
-                <ul class="tabs">
-                    <li class="tab col s3"><a class="active" href="#overview"><i class="material-icons icon-left-align">info</i>Overview</a></li>
-                    <li class="tab col s3"><a href="#repo"><i class="material-icons icon-left-align">layers</i>Repositories</a></li>
-                    <li class="tab col s3"><a href="#team"><i class="material-icons icon-left-align">groups</i>Team</a></li>
-                </ul>
-            </div>
-            <div id="overview" class="col s12">
-                <ul class="collapsible">
-                    <li class="active">
-                      <div class="collapsible-header"><i class="material-icons">filter_1</i>Goal</div>
-                      <div class="collapsible-body">Our goal is to .....</div>
-                    </li>
-                    <li>
-                      <div class="collapsible-header"><i class="material-icons">filter_2</i>Heading 2</div>
-                      <div class="collapsible-body">Content 2</div>
-                    </li>
-                    <li>
-                      <div class="collapsible-header"><i class="material-icons">filter_3</i>Heading 3</div>
-                      <div class="collapsible-body">Content 3</div>
-                    </li>
-                  </ul>
-            </div>
-            <div id="repo" class="col s12">
-                
-            </div>
-            <div id="team" class="col s12">
-                <div class="card z-depth-1">
-                    <div class="card-content black-text center-align">
-                        
+    <main id="main">
+        <section id="about">
+            <div class="container">
+                <header class="section-header">
+                    <h3>About Us</h3>
+                    <p>This club aims to promote and foster coding skills as well as a healthy competitive environment at the institute by providing adequate resources. It will help members in developing an aptitude for logical thinking and visualizing a problem from various perspectives and creating multiple innovative solutions.</p>
+                </header>
+
+                <div class="row about-cols">
+                    
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="box">
+                            <div class="icon" style="background: #FCEEF3;"><i class="ion-ios-paper-outline" style="color: #FF689B;"></i></div>
+                            <h4 class="title">Resource Distribution</h4>
+                            <p class="description">The club may ensure that the members have access to the required resources for enhancing skills such as coding, web and app development.</p>
+                        </div>
                     </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="box">
+                            <div class="icon" style="background: #EAFDE7;"><i class="ion-ios-speedometer-outline" style="color:#14CF2E;"></i></div>
+                            <h4 class="title">Doubt Sessions</h4>
+                            <p class="description">In order to ensure proper understanding of concepts, the club shall organize regular sessions involving learning through a practical approach.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="box">
+                            <div class="icon" style="background: #ECEBFF;"><i class="ion-ios-clock-outline" style="color: #8660FE;"></i></div>
+                            <h4 class="title">Coding Competition</h4>
+                            <p class="description">The club shall conduct coding competitions periodically. It would ensure a healthy learning environment and practical application of various concepts.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="repositories" class="section-bg">
+            <div class="container">
+                <header class="section-header">
+                    <h3 class="title">resources</h3>
+                </header>
+
+                <div class="row repo-container"></div>
+
+                <div class="more-btn">
+                    <i class="ion-ios-arrow-up more-btn-inactive"></i>
+                    <p>Show More</p>
+                    <i class="ion-ios-arrow-down"></i>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="team">
+            <div class="container">
+                <header class="section-header">
+                    <h3 class="title">Our Team</h3>
+                </header>
+
+                <div class="row team-container"></div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer" class="section-bg">
+        <div class="container footer-container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 footer-info">
+                    <h3>DevCans</h3>
+                    <p>To promote and foster coding skills as well as a healthy competitive environment at the institute by providing adequate resources.</p>
+                </div>
+
+                <div class="col-lg-4 col-md-6 footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>
+                        DevCans<br>
+                        National Institute of Technology Sikkim<br>
+                        Ravangla, South Sikkim, India<br>
+                        737139<br>
+                        <strong>Email:</strong> <a href="mailto:devcans@nitsikkim.ac.in" style="color: #FFF;">devcans@nitsikkim.ac.in</a>
+                    </p>
+
+                    <div class="social-links">
+                        <a href="https://github.com/DevCANS" class="github waves-effect"><i class="fa fa-github"></i></a>
+                        <a href="#" class="facebook waves-effect"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="instagram waves-effect"><i class="fa fa-instagram"></i></a>
+                        <a href="#" class="linkedin waves-effect"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 footer-feedback">
+                    <h4>Feedback</h4>
+                    <p>We are happy to hear from you.</p>
+                    <button type="button" class="btn btn-primary waves-effect">Give Feedback</button>
                 </div>
             </div>
         </div>
-    </main>
-
-    <footer class="page-footer grey darken-4">
-        <div class="container footer-container">
-            <div class="row">
-                <div class="col m4 s6">
-                    <h5 class="white-text">Footer Heading 1</h5>
-                    <p class="grey-text text-lighten-4">Content 1</p>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="copyright">
+                    &copy; Copyright <strong>National Institute of Technology Sikkim</strong>. All Rights Reserved.
                 </div>
-                <div class="col m4 s6">
-                    <h5 class="white-text">Footer Heading 2</h5>
-                    <p class="grey-text text-lighten-4">Content 2</p>
-                </div>
-                <div class="col m4 s6">
-                    <h5 class="white-text"><i class="material-icons left">feedback</i>Feedback</h5>
-                    <p>We will be happy to hear from you</p>
-                    <a class="tooltipped" href="#!" data-position="top" data-tooltip="Opens a Modal">Give Feedback</a>
-                </div>
-            </div>
-            <div class="my-gap-10"></div>
-            <div class="row">
-                <div class="col m4 s6">
-                    &copy; <script>let d = new Date(); document.write(d.getFullYear())</script>
-                </div>
-                <div class="col m4 s6 push-m4">
-                    <a class="grey-text text-lighten-4" href="https://github.com/DevCans/" target="_blank"><img src="assets/img/github.png" class="footer-git-icon">GitHub</a>
+                <div class="credits">
+                    Made with <i class="fa fa-heart" style="color: red;"></i> by DevCans
                 </div>
             </div>
         </div>
