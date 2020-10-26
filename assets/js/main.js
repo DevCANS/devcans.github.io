@@ -53,8 +53,7 @@ function fetchRepos(force = false) {
             "Accept": "application/vnd.github.v3+json",
             "If-None-Match": ls.getKey("repo-etag")
         }
-    })
-    .then(
+    }).then(
         function(response) {
             if (response.status == 304) {
                 try {
@@ -83,8 +82,7 @@ function fetchRepos(force = false) {
                 updateRepos(data);
             });
         }
-    )
-    .catch(function(err) {
+    ).catch(function(err) {
         console.log("[FETCH Repo] Fetch Error!", err);
     });
 }
@@ -101,11 +99,11 @@ function updateRepos(data){
         let iconImg = val.name.split("-")[0].toLowerCase();
         let imgSource = "";
 
-        if(iconImg === "website"){
+        if (iconImg === "website") {
             // For devcans website repo
             imgSource = "assets/img/icon.png"
-        }else{
-            if(iconImg === "web"){
+        } else {
+            if (iconImg === "web") {
                 iconImg = "html";
             }
             imgSource = `https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/${iconImg}/${iconImg}.png`;
@@ -114,7 +112,7 @@ function updateRepos(data){
         box.appendChild(icon);
         let h3 = createElement("h3", {class: "title"});
         h3.innerHTML = `
-                <a href="${val.html_url}" target="_">${val.name.replaceAll("-", " ").toUpperCase()}</a>
+            <a href="${val.html_url}" target="_">${val.name.replaceAll("-", " ").toUpperCase()}</a>
         `;
         box.appendChild(h3);
         let p = createElement("p", {class: "description"});
@@ -126,25 +124,20 @@ function updateRepos(data){
 
     // Setting up listener for show more button
     const button = document.querySelector(".more-btn");
-    button.addEventListener('click', () => {
+    button.addEventListener("click", () => {
         button.childNodes[1].classList.toggle("more-btn-inactive");
         let text = button.childNodes[3].textContent;
 
-        if(text == "Show More"){
-            text = "Show Less";
-        }else{
-            text = "Show More";
-        }
+        text == "Show More" ? text = "Show Less" : text = "Show More";
         
         button.childNodes[3].textContent = text;
         button.childNodes[5].classList.toggle("more-btn-inactive");
 
-        if(button.childNodes[1].classList.contains("more-btn-inactive")){
-            repoContainer.style.maxHeight = 350+"px";
-        }else{
-            repoContainer.style.maxHeight = repoContainer.scrollHeight+"px";
+        if (button.childNodes[1].classList.contains("more-btn-inactive")) {
+            repoContainer.style.maxHeight = 350 + "px";
+        } else {
+            repoContainer.style.maxHeight = repoContainer.scrollHeight + "px";
         }
-        
     });
 }
 
@@ -154,8 +147,7 @@ function fetchTeam(force = false) {
             "Accept": "application/vnd.github.v3+json",
             "If-None-Match": ls.getKey("team-etag")
         }
-    })
-    .then(
+    }).then(
         function(response) {
             if (response.status == 304) {
                 try {
@@ -184,20 +176,18 @@ function fetchTeam(force = false) {
                 updateTeam(data);
             });
         }
-    )
-    .catch(function(err) {
+    ).catch(function(err) {
         console.log("[FETCH Team] Fetch Error!", err);
     });
 }
 
 function updateTeam(data){
-    console.log(data);
     data.forEach((member) => {
-        if(ls.getKey(member.node_id) != null){
+        if (ls.getKey(member.node_id) != null) {
             // Fetching member info from local storage
             info = JSON.parse(ls.getKey(member.node_id));
             setMember(info);
-        }else{
+        } else {
             // Fetching member info from github api
             fetch(member.url, {
                 headers: {
@@ -212,7 +202,6 @@ function updateTeam(data){
                 response.json().then((info) => {
                     // Saving member info to local storage
                     ls.setKey(info.node_id, JSON.stringify(info));
-
                     setMember(info)
                 });
             }).catch(function(err) {
@@ -237,7 +226,7 @@ function setMember(info){
     let social = createElement("div", {class: "social"});
     social.innerHTML = `
         <a href="${info.html_url} target="_"><i class="fa fa-github"></i></a>
-    `
+    `;
     memberInfoContent.appendChild(social);
     memberInfo.appendChild(memberInfoContent);
     member.appendChild(img);
