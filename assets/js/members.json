@@ -2,13 +2,13 @@
     "faculty":[
         {
             "profile": "faculty",
-            "img": "/assets/img/faculty/PratyayKuila.jpeg",
+            "img": "assets/img/faculty/PratyayKuila.jpeg",
             "name": "Dr. Pratyay Kuila",
             "designation" : "Faculty advisors"
           },
           {
             "profile": "faculty",
-            "img": "/assets/img//faculty/TarunBiswas.jpeg",
+            "img": "assets/img//faculty/TarunBiswas.jpeg",
             "name": "Dr. Tarun Biswas",
             "designation" : "Faculty advisors"
           }
@@ -16,20 +16,20 @@
     "2021": [
       {
         "profile": "member",
-        "img": "/assets/img/member/PokalaAnirudh.png",
+        "img": "assets/img/member/PokalaAnirudh.png",
         "name": "Pokala Anirudh",
         "designation": "Coordinator"
       },
       {
         "profile": "member",
-        "img": "/assets/img/member/PrinceRaj.jpg",
+        "img": "assets/img/member/PrinceRaj.jpg",
         "name": "Prince Raj",
         "designation": "Coordinator"
 
       },
       {
         "profile": "member",
-        "img": "/assets/img/member/AbhineshKumar.jpg",
+        "img": "assets/img/member/AbhineshKumar.jpg",
         "name": "Abhinesh Kumar",
         "designation": "Coordinator"
 
