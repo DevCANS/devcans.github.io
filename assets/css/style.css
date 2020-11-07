@@ -623,6 +623,11 @@ main {
     color: #ff5622e1;
 }
 
+.faculty-designation, .member-designation{
+    padding: 0px 6px 0px !important;
+}
+
+
 .basic-details {
     position: relative;
     z-index: 20; 

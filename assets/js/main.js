@@ -142,36 +142,14 @@ function updateRepos(data){
 }
 
 function fetchTeam(force = false) {
-    fetch("./assets/js/members.json", {
-        headers: {
-            "Accept": "*",
-            "If-None-Match": ls.getKey("team-etag")
-        }
-    }).then(
+    fetch("./assets/js/members.json")
+    .then(
         function(response) {
-            if (response.status == 304) {
-                try {
-                    let data = JSON.parse(ls.getKey("team-data"));
-                    updateTeam(data);
-                    console.log("[LOCAL Team] Loaded cached copy.");
-                } catch (e) {
-                    ls.removeKey("team-etag");
-                    setTimeout(fetchTeam());
-                }
-                return;
-            }
             if (response.status !== 200) {
                 console.log("[FETCH Team] Request failed!. Status Code: " + response.status);
                 return;
             }
-
             response.json().then(function(data) {
-                try {
-                    ls.setKey("team-etag", response.headers.get("etag"));
-                    ls.setKey("team-data", JSON.stringify(data));
-                } catch (e) {
-                    console.log("[FETCH Team] ETag Missing");
-                }
                 updateTeam(data);
             });
             }
@@ -195,10 +173,13 @@ function setMember(info){
     let basicdetails = createElement("div", {class: "basic-details"});
     let img = createElement("img",{class: info.profile+"-image", src: info.img});
     let h3 = createElement("h3", {class: info.profile+"-name"});
+    let h4 = createElement("h4", {class: info.profile+"-designation "+info.profile+"-name ml-2"});
     let innerdetails = createElement("div", {class: "outer-circle"});
     h3.innerHTML = info.name;
+    h4.innerHTML = info.designation;
     basicdetails.appendChild(img);
     basicdetails.appendChild(h3);
+    basicdetails.appendChild(h4);
     outerDiv.appendChild(basicdetails);
     outerDiv.appendChild(innerdetails);
     teamContainer.appendChild(outerDiv);
