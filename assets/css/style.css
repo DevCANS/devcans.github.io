@@ -557,3 +557,123 @@ main {
         font-size: 14px;
     }
 }
+
+/* Team */
+
+.team-container h4 {
+    font-family: "Raleway", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 12px;
+    text-align: center;
+}
+
+.team-container h4::before,
+.team-container h4::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+}
+
+.team-container h4::before {
+    right: 0;
+    left: 0;
+    background: #555555;
+}
+
+.team-container h4::after {
+    background: #FF5722;
+    left: 20%;
+    width: 60%;
+}
+
+
+.faculty-container{
+    margin-left: 22% !important;
+}
+.member-container{
+    margin-left: 13% !important;
+}
+
+.member-container, .faculty-container {
+    margin: 0px 25px;
+    padding: 12px;
+    display: inline-block;
+    width: 155px;
+    position: relative;
+    z-index: 0;
+}
+
+
+.member-container:hover, .faculty-container:hover {
+    z-index: 100;
+}
+
+.member-container:hover > .outer-circle, .faculty-container:hover > .outer-circle  {
+    animation: fade 0.5s ease 0s 1 forwards;
+
+}
+
+.faculty-container:hover  > .basic-details > h3, .member-container:hover  > .basic-details > h3{
+    color: #ff5622e1;
+}
+
+.basic-details {
+    position: relative;
+    z-index: 20; 
+}
+
+.basic-details .member-image, .faculty-image {
+    border-radius: 50%;
+    width: 131px;
+    height: 131px;
+}
+
+.basic-details .member-name, .faculty-name {
+    color: white;
+    padding: 11% 0% 0px 9px;
+    font-size: 15px;
+
+}
+
+.outer-circle {
+    position: absolute;
+    background-color:#ff5622c0;
+    padding-top: 135px;
+    padding-bottom: 20px;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 15;
+    opacity: 0;
+    border-radius: 100%;
+}
+
+@media only screen and (max-width: 550px) {
+    .outer-circle {
+        padding-top: 140px;
+    }
+
+
+}
+
+.outer-circle h5 {
+    color: white;
+    font-weight: 100;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(1px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}

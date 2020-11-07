@@ -142,9 +142,9 @@ function updateRepos(data){
 }
 
 function fetchTeam(force = false) {
-    fetch("https://api.github.com/orgs/devCANS/public_members", {
+    fetch("./assets/js/members.json", {
         headers: {
-            "Accept": "application/vnd.github.v3+json",
+            "Accept": "*",
             "If-None-Match": ls.getKey("team-etag")
         }
     }).then(
@@ -172,68 +172,37 @@ function fetchTeam(force = false) {
                 } catch (e) {
                     console.log("[FETCH Team] ETag Missing");
                 }
-
                 updateTeam(data);
             });
-        }
-    ).catch(function(err) {
-        console.log("[FETCH Team] Fetch Error!", err);
+            }
+            ).catch(function(err) {
+                console.log("[FETCH Team] Fetch Error!", err);
     });
 }
 
 function updateTeam(data){
-    data.forEach((member) => {
-        if (ls.getKey(member.node_id) != null) {
-            // Fetching member info from local storage
-            info = JSON.parse(ls.getKey(member.node_id));
-            setMember(info);
-        } else {
-            // Fetching member info from github api
-            fetch(member.url, {
-                headers: {
-                    "Accept": "application/vnd.github.v3+json",
-                    "If-None-Match": ls.getKey("team-etag")
-                }
-            }).then((response) => {
-                if(response.status != 200){
-                    console.log("[Fetch Member Info] Status code" + response.status);
-                }
-    
-                response.json().then((info) => {
-                    // Saving member info to local storage
-                    ls.setKey(info.node_id, JSON.stringify(info));
-                    setMember(info)
-                });
-            }).catch(function(err) {
-                console.log("[FETCH Team] Fetch Error!", err);
-            });
-        }
+    Object.entries(data).forEach((val) => {
+            val[1].forEach((key)=> {
+                setMember(key);   
+            })
+        })
+    }
 
-    });
-}
 
 function setMember(info){
-    // Creating member card
-    const teamContainer = document.querySelector(".team-container");
-    let outerDiv = createElement("div", {class: "col-lg-2 col-md-4"});
-    let member = createElement("div", {class: "member"});
-    let img = createElement("img",{class: "img-fluid", src: info.avatar_url});
-    let memberInfo = createElement("div", {class: "member-info"});
-    let memberInfoContent = createElement("div", {class: "member-info-content"});
-    let h4 = createElement("h4");
-    h4.innerHTML = info.name;
-    memberInfoContent.appendChild(h4);
-    let social = createElement("div", {class: "social"});
-    social.innerHTML = `
-        <a href="${info.html_url}" target="_"><i class="fa fa-github"></i></a>
-    `;
-    memberInfoContent.appendChild(social);
-    memberInfo.appendChild(memberInfoContent);
-    member.appendChild(img);
-    member.appendChild(memberInfo);
-    outerDiv.appendChild(member);
+    let teamContainer = document.querySelector('#'+info.profile+'-container');
+    let outerDiv = createElement("div", {class: info.profile+"-container"});
+    let basicdetails = createElement("div", {class: "basic-details"});
+    let img = createElement("img",{class: info.profile+"-image", src: info.img});
+    let h3 = createElement("h3", {class: info.profile+"-name"});
+    let innerdetails = createElement("div", {class: "outer-circle"});
+    h3.innerHTML = info.name;
+    basicdetails.appendChild(img);
+    basicdetails.appendChild(h3);
+    outerDiv.appendChild(basicdetails);
+    outerDiv.appendChild(innerdetails);
     teamContainer.appendChild(outerDiv);
-}
+    };
 
 function createElement(tag, options = {}, html = "") {
     let e = document.createElement(tag);
@@ -247,6 +216,9 @@ function createElement(tag, options = {}, html = "") {
     }
     return e;
 }
+
+
+
 
 function getMaterialIcon(icon, addClasses = "", DOMElement = true) {
     if (DOMElement) {
@@ -324,3 +296,9 @@ function init() {
 
     new TypeWriter(textElement, words, wait);
 }
+
+
+
+
+
+
