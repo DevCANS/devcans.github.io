@@ -18,21 +18,71 @@
         "profile": "member",
         "img": "assets/img/member/PokalaAnirudh.png",
         "name": "Pokala Anirudh",
-        "designation": "Coordinator"
+        "designation": "Coordinator - ML, Data Science",
+        "social": {
+          "github": "https://github.com/pokalaanirudh",
+          "linkedin": "https://www.linkedin.com/in/pokala-anirudh-2a9352152/"
+        }
       },
       {
         "profile": "member",
         "img": "assets/img/member/PrinceRaj.jpg",
         "name": "Prince Raj",
-        "designation": "Coordinator"
-
+        "designation": "Coordinator - Web Development",
+        "social": {
+          "github": "https://github.com/princeNITian",
+          "linkedin": "https://www.linkedin.com/in/iamprinceraj/"
+        }
       },
       {
         "profile": "member",
         "img": "assets/img/member/AbhineshKumar.jpg",
         "name": "Abhinesh Kumar",
-        "designation": "Coordinator"
-
+        "designation": "Coordinator - C++",
+        "social": {
+          "github": "#",
+          "linkedin": "https://www.linkedin.com/in/abhinesh-kumar-315808193/"
+        }
+      },
+      {
+        "profile":"member",
+        "img": "assets/img/member/PrateekOraon.jpg",
+        "name": "Prateek Kumar Oraon",
+        "designation": "Coordinator - Java",
+        "social": {
+          "github": "https://github.com/prateekKrOraon",
+          "linkedin": "https://www.linkedin.com/in/prateekkroraon/"
+        }
+      },
+      {
+        "profile":"member",
+        "img": "assets/img/member/DhrubajitSarkar.jpg",
+        "name": "Dhrubajit Sarkar",
+        "designation": "Coordinator - Mobile App Dev.",
+        "social": {
+          "github": "https://github.com/dhruvaism",
+          "linkedin": "https://www.linkedin.com/in/dhrubajit-sarkar-453542170/"
+        }
+      },
+      {
+        "profile":"member",
+        "img": "assets/img/member/VipinYadav.jpg",
+        "name": "Vipin Yadav",
+        "designation": "Coordinator - C++",
+        "social": {
+          "github": "https://github.com/vip529",
+          "linkedin": "https://www.linkedin.com/in/vipin-b170188/"
+        }
+      },
+      {
+        "profile":"member",
+        "img": "assets/img/member/GirijaKar.jpg",
+        "name": "Girija Nandan Kar",
+        "designation": "Coordinator - Web Development",
+        "social": {
+          "github": "https://github.com/girijakar",
+          "linkedin": "https://www.linkedin.com/in/girijanandankar/"
+        }
       }
     ]
 }

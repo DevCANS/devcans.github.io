@@ -232,7 +232,7 @@ main {
     line-height: 1;
 }
  
-.section-header h3{
+.section-header .title {
     font-family: "Raleway", sans-serif;
     font-size: 32px;
     color: #EEEEEE;
@@ -243,7 +243,7 @@ main {
     padding-bottom: 15px;
 }
 
-.section-header h3::before {
+.section-header .title::before {
     content: "";
     position: absolute;
     display: block;
@@ -254,7 +254,7 @@ main {
     left: calc(50% - 60px);
 }
 
-.section-header h3::after {
+.section-header .title::after {
     content: "";
     position: absolute;
     display: block;
@@ -334,24 +334,58 @@ main {
 
 /* Team Members */
 
+#team .container .section-header .title {
+    text-align: left;
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+#team .container .section-header .title::before {
+    width: 100%;
+    left: 0;
+}
+
+#team .container .section-header .title::after {
+    width: 200px;
+    left: 0;
+    height: 2px;
+}
+
+#team .img-fluid {
+    max-height: 221px;
+    width: 100%;
+    object-fit: cover;
+}
+
+#faculty-container {
+    margin-bottom: 40px;
+    padding: 0 6.2%;
+}
+
+#member-container {
+    margin: 0;
+    display: flex;
+}
+
+#team .slider-container {
+    padding: 0 5%;
+    position: relative;
+    overflow: hidden;
+}
+
+#team .slides {
+    position: relative;
+    overflow: hidden;
+}
+
 #team .member {
     text-align: center;
     margin-bottom: 20px;
-    background: #333333;
     position: relative;
-    border-radius: 15px;
-}
-
-#team .member img {
-    border-radius: 15px;
-}
-
-#team .team-container {
-    padding-top: 50px;
+    overflow: hidden;
 }
 
 #team .member .member-info {
-    opacity: 0;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -366,35 +400,40 @@ main {
     align-items: center;
     position: absolute;
     bottom: 0;
-    top: 0;
     left: 0;
     right: 0;
     transition: 0.2s;
+    padding: 15px 0;
+    background: rgba(29, 28, 41, 0.6);
 }
 
 #team .member .member-info-content {
-    margin-top: -50px;
     transition: margin 0.2s;
+    height: 40px;
+    transition: height 0.4s;
 }
 
 #team .member:hover .member-info {
-    background: rgba(0, 0, 0, 0.7);
-    opacity: 1;
     transition: 0.4s;
-    border-radius: 15px;
 }
 
 #team .member:hover .member-info-content {
-    margin-top: 0;
-    transition: margin 0.4s;
-    padding: 5px;
+    height: 80px;
 }
 
-#team .member h4 {
+#team .member h3 {
     font-family: "Raleway", sans-serif;
+    font-weight: 700;
     margin-bottom: 2px;
     font-size: 18px;
     color: #fff;
+}
+
+#team .member span {
+    font-style: italic;
+    display: block;
+    font-size: 13px;
+    color: #FFFFFF;
 }
 
 #team .member .social {
@@ -411,14 +450,93 @@ main {
 }
   
 #team .member .social a i {
-    font-size: 25px;
-    margin: 0 2px;
+    font-size: 18px;
+    margin: 0 5px;
+}
+
+@media (max-width: 1200px) {
+    #team .member {
+        max-height: 180px;
+    }
+
+    #team .member h3 {
+        font-size: 17px;
+    }
+
+    #team .member span {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 992px) {
+    #team .member {
+        max-height: 175px;
+    }
+
+    #team .member h3 {
+        font-size: 17px;
+    }
+
+    #team .member span {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 768px) {
+    #team .member {
+        max-height: 200px;
+    }
+
+    #team .member h3 {
+        font-size: 16px;
+    }
+
+    #team .member span {
+        font-size: 12px;
+    }
+
+}
+
+@media (max-width: 576px) {
+    #team .member {
+        max-height: 34vw;
+    }
+}
+
+/* Team Slider */
+
+.slide-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#next-btn, #prev-btn {
+    cursor: pointer;
+    background: transparent;
+    font-size: 30px;
+    border: none;
+    padding: 10px;
+    color: white;
+}
+
+#next-btn:focus, #prev-btn:focus{
+    outline: none;
+}
+
+#next-btn:hover, #prev-btn:hover{
+    color: #FF5722;
 }
 
 /* Footer */
 
 .footer-container {
-    margin: 0 10%;
+    margin: 20px 10%;
     width: 85%;
     padding-top: 20px;
 }
@@ -447,6 +565,10 @@ main {
 
 .social-links{
     margin-top: 20px;
+}
+
+.footer-contact {
+    margin-bottom: 30px;
 }
 
 .footer-contact .social-links a {
@@ -555,130 +677,5 @@ main {
 
     .welcome-msg {
         font-size: 14px;
-    }
-}
-
-/* Team */
-
-.team-container h4 {
-    font-family: "Raleway", sans-serif;
-    font-size: 18px;
-    font-weight: bold;
-    color: #fff;
-    text-transform: uppercase;
-    position: relative;
-    padding-bottom: 12px;
-    text-align: center;
-}
-
-.team-container h4::before,
-.team-container h4::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 2px;
-}
-
-.team-container h4::before {
-    right: 0;
-    left: 0;
-    background: #555555;
-}
-
-.team-container h4::after {
-    background: #FF5722;
-    left: 20%;
-    width: 60%;
-}
-
-
-.faculty-container{
-    margin-left: 22% !important;
-}
-.member-container{
-    margin-left: 13% !important;
-}
-
-.member-container, .faculty-container {
-    margin: 0px 25px;
-    padding: 12px;
-    display: inline-block;
-    width: 155px;
-    position: relative;
-    z-index: 0;
-}
-
-
-.member-container:hover, .faculty-container:hover {
-    z-index: 100;
-}
-
-.member-container:hover > .outer-circle, .faculty-container:hover > .outer-circle  {
-    animation: fade 0.5s ease 0s 1 forwards;
-
-}
-
-.faculty-container:hover  > .basic-details > h3, .member-container:hover  > .basic-details > h3{
-    color: #ff5622e1;
-}
-
-.faculty-designation, .member-designation{
-    padding: 0px 6px 0px !important;
-}
-
-
-.basic-details {
-    position: relative;
-    z-index: 20; 
-}
-
-.basic-details .member-image, .faculty-image {
-    border-radius: 50%;
-    width: 131px;
-    height: 131px;
-}
-
-.basic-details .member-name, .faculty-name {
-    color: white;
-    padding: 11% 0% 0px 9px;
-    font-size: 15px;
-
-}
-
-.outer-circle {
-    position: absolute;
-    background-color:#ff5622c0;
-    padding-top: 135px;
-    padding-bottom: 20px;
-    width: 100%;
-    top: 0px;
-    left: 0px;
-    z-index: 15;
-    opacity: 0;
-    border-radius: 100%;
-}
-
-@media only screen and (max-width: 550px) {
-    .outer-circle {
-        padding-top: 140px;
-    }
-
-
-}
-
-.outer-circle h5 {
-    color: white;
-    font-weight: 100;
-}
-
-@keyframes fade {
-    from {
-        opacity: 0;
-        transform: translateY(1px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0px);
     }
 }
