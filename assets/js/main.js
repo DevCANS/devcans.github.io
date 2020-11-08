@@ -112,7 +112,7 @@ function updateRepos(data){
         box.appendChild(icon);
         let h3 = createElement("h3", {class: "title"});
         h3.innerHTML = `
-            <a href="${val.html_url}" target="_">${val.name.replaceAll("-", " ").toUpperCase()}</a>
+            <a href="${val.html_url}" target="_blank">${val.name.replaceAll("-", " ").toUpperCase()}</a>
         `;
         box.appendChild(h3);
         let p = createElement("p", {class: "description"});
@@ -162,28 +162,61 @@ function updateTeam(data){
     Object.entries(data).forEach((val) => {
             val[1].forEach((key)=> {
                 setMember(key);   
-            })
-        })
-    }
+            });
+    });
+
+    initSlider();
+}
 
 
 function setMember(info){
     let teamContainer = document.querySelector('#'+info.profile+'-container');
-    let outerDiv = createElement("div", {class: info.profile+"-container"});
-    let basicdetails = createElement("div", {class: "basic-details"});
-    let img = createElement("img",{class: info.profile+"-image", src: info.img});
-    let h3 = createElement("h3", {class: info.profile+"-name"});
-    let h4 = createElement("h4", {class: info.profile+"-designation "+info.profile+"-name ml-2"});
-    let innerdetails = createElement("div", {class: "outer-circle"});
-    h3.innerHTML = info.name;
-    h4.innerHTML = info.designation;
-    basicdetails.appendChild(img);
-    basicdetails.appendChild(h3);
-    basicdetails.appendChild(h4);
-    outerDiv.appendChild(basicdetails);
-    outerDiv.appendChild(innerdetails);
-    teamContainer.appendChild(outerDiv);
-    };
+    
+    const name = createElement("h3",null,info.name);
+    const designation = createElement("span",null,info.designation);
+    const infoContent = createElement("div", {class: "member-info-content"});
+    infoContent.appendChild(name);
+    infoContent.appendChild(designation);
+    if (info.social != null){
+        const social = createElement("div", {class: "social"});
+        Object.keys(info.social).map((key) => {
+            social.appendChild(createElement(
+                "a", 
+                {
+                    href: info.social[key],
+                    target: "_blank"
+                },
+                createElement(
+                    "i",
+                    {class: `fa fa-${key}`}
+                )
+            ));
+        });
+        infoContent.appendChild(social);
+    }
+    const memberInfo = createElement("div",{class: "member-info"});
+    memberInfo.appendChild(infoContent);
+    const img = createElement(
+        "img", 
+        {
+            class: "img-fluid",
+            src: info.img,
+            alt: info.name
+        }
+    );
+
+    const memberDiv = createElement("div", {class: "member"});
+    memberDiv.appendChild(img);
+    memberDiv.appendChild(memberInfo);
+    const memberContainer = createElement(
+        "div",
+        {
+            class: info.profile==="faculty"? "col-lg-3 col-md-4 col-sm-6 col-6" : "col-lg-3 col-md-4 col-sm-6 col-6 slide"
+        }
+    );
+    memberContainer.appendChild(memberDiv);
+    teamContainer.appendChild(memberContainer);
+};
 
 function createElement(tag, options = {}, html = "") {
     let e = document.createElement(tag);
@@ -198,8 +231,111 @@ function createElement(tag, options = {}, html = "") {
     return e;
 }
 
+// Slider
+let index = 1;
+let slideContainer;
+let slider;
+let slides;
+let nextBtn;
+let prevBtn;
+let slideTimer;
+let firstClone;
+let lastClone;
+let slideWidth;
 
+let interval = 3000;
 
+function initSlider() {
+
+    slideContainer = document.querySelector(".slider-container");
+    slider = document.getElementById("member-container");
+    slides = getSlides();
+    nextBtn = document.getElementById("next-btn");
+    prevBtn = document.getElementById("prev-btn");
+
+    firstClone = slides[0].cloneNode(true);
+    secondChild = slides[1].cloneNode(true);
+    thirdChild = slides[2].cloneNode(true);
+    fourthChild = slides[3].cloneNode(true);
+    lastClone = slides[slides.length-1].cloneNode(true);
+
+    firstClone.id = "first-clone";
+    lastClone.id = "last-clone";
+
+    slideWidth = slides[0].clientWidth;
+
+    slider.append(firstClone);
+    slider.append(secondChild);
+    slider.append(thirdChild);
+    slider.append(fourthChild);
+    slider.prepend(lastClone);
+    
+    interval = 3000;
+
+    slider.addEventListener('transitionend', () => {
+        slides = getSlides();
+
+        if (slides[0].clientWidth != slideWidth){
+            slideWidth = slides[0].clientWidth;
+            slider.style.transition = 'none';
+            index = 1;
+            slider.style.transform = `translateX(${-slideWidth * index}px)`;
+        }
+
+        if(slides[index].id === firstClone.id) {
+            slider.style.transition = 'none';
+            index = 1;
+            slider.style.transform = `translateX(${-slideWidth * index}px)`;
+        }else if(slides[index].id === lastClone.id) {
+            slider.style.transition = 'none';
+            index = slides.length-2;
+            slider.style.transform = `translateX(${-slideWidth * index}px)`;
+        }
+    });
+    
+    slideContainer.addEventListener('mouseenter', () => {
+        clearInterval(slideTimer);
+    });
+    
+    slideContainer.addEventListener('mouseleave', () => {
+        startSlider();
+    });
+    
+    nextBtn.addEventListener('click', moveToNextSlide);
+    prevBtn.addEventListener('click', moveToPrevSlide);
+
+    startSlider();
+
+}
+
+function getSlides() {
+    return document.querySelectorAll(".slide");
+}
+
+function startSlider() {
+    slideTimer = setInterval(() => {
+        moveToNextSlide();
+    }, interval)
+}
+
+function moveToNextSlide() {
+    slides = getSlides();
+    if(index >= slides.length-1) {
+        return;
+    }
+    index++;
+    slider.style.transform = `translateX(${-slideWidth * index}px)`;
+    slider.style.transition = ".7s";
+}
+
+function moveToPrevSlide() {
+    if(index <= 0) {
+        return;
+    }
+    index--;
+    slider.style.transform = `translateX(${-slideWidth * index}px)`;
+    slider.style.transition = ".7s";
+}
 
 function getMaterialIcon(icon, addClasses = "", DOMElement = true) {
     if (DOMElement) {
@@ -277,9 +413,3 @@ function init() {
 
     new TypeWriter(textElement, words, wait);
 }
-
-
-
-
-
-
