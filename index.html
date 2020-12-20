@@ -139,6 +139,36 @@
         </section>
     </main>
 
+    <div id="feedback-modal" class="modal">
+        <div class="modal-content">
+            <h4>Add your feedback</h4>
+
+            <form id="feedback-form" method="POST">
+                <div class="form-row mb-3">
+                    <button type="button" class="tooltipped btn-floating mx-1 white btn-selectable" data-value="liked"
+                        data-name="quick-feedback" data-position="top" data-tooltip="Liked it"><i
+                            class="material-icons text-dark">mood</i></button>
+                    <button type="button" class="tooltipped btn-floating mx-1 white btn-selectable" data-value="disliked"
+                        data-name="quick-feedback" data-position="top" data-tooltip="Disliked it"><i
+                            class="material-icons text-dark">mood_bad</i></button>
+                </div>
+                <div class="form-row mb-3">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">feedback</i>
+                        <textarea id="feedback-msg" name="user-message" class="materialize-textarea" required></textarea>
+                        <label for="feedback-msg">Write here</label>
+                    </div>
+                </div>
+                <div class="form-row mb-3">
+                    <div class="col-12 center-align">
+                        <button type="button" class="btn btn-danger waves-effect modal-close">Cancel</button>
+                        <button type="submit" class="btn btn-success waves-effect">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <footer id="footer" class="section-bg">
         <div class="container footer-container">
             <div class="row">
@@ -168,10 +198,12 @@
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12 footer-feedback">
                     <h4>Feedback</h4>
                     <p>We are happy to hear from you.</p>
-                    <button type="button" class="btn btn-primary waves-effect">Give Feedback</button>
+                    <button type="button" class="btn btn-primary waves-effect modal-trigger" data-target="feedback-modal">Give
+                        Feedback</button>
                 </div>
             </div>
         </div>
+
         <div class="footer-bottom">
             <div class="container">
                 <div class="copyright">

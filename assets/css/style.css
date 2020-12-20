@@ -651,6 +651,17 @@ main {
     color: #DDDDDD;
 }
 
+button.btn-selectable.selected {
+    color: #000 !important;
+    background-color: lightgreen !important;
+}
+
+#feedback-modal {
+    width: fit-content;
+    min-width: 300px;
+    height: fit-content;
+}
+
 /* Media Queries */
 @media(max-width: 800px) {
     .container{

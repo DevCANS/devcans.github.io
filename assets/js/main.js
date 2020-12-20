@@ -41,6 +41,7 @@ $(document).ready(function(){
     $(".tabs").tabs();
     $(".collapsible").collapsible();
     $(".tooltipped").tooltip();
+    $(".modal").modal();
 
     fetchRepos();
     fetchTeam();
@@ -404,6 +405,46 @@ class TypeWriter {
         setTimeout(() => this.type(), typeSpeed);
     }
 }
+
+function showToast(htmlData, classData = "blue white-text", icon = "info") {
+    let toastIcon = getMaterialIcon(icon, "left", false);
+    return M.toast({html: toastIcon + htmlData, classes: classData});
+}
+
+$("button.btn-selectable").click(function() {
+    $(this).toggleClass("selected").siblings().removeClass("selected");
+});
+
+$("#feedback-form").on("submit", function(e) {
+    e.preventDefault();
+
+    let form = $(this);
+    let submitBtn = form.find("button[type='submit']");
+    let modal = $("#feedback-modal");
+    let formdata = new FormData(this);
+    let quickFeedback = $("#feedback-form button.btn-selectable.selected").attr("data-value");
+    quickFeedback = (typeof quickFeedback == "undefined") ? "none" : quickFeedback;
+    formdata.append("quick-feedback", quickFeedback);
+
+    $.ajax({
+        url: "url-to-submit-feedback",
+        data: formdata,
+        method: "POST",
+        timeout: 15000,
+        contentType: false,
+        processData: false,
+        beforeSend: function() {
+            submitBtn.html("Submitting...").attr("disabled", true);
+        }
+    }).done(function() {
+        showToast("Feedback Submitted!", "green", "done");
+    }).fail(function() {
+        showToast("Failed to submit feedback!", "red", "error");
+    }).always(function() {
+        modal.modal("close");
+        submitBtn.html("Submit").attr("disabled", false);
+    });
+});
 
 function init() {
     const textElement = document.querySelector(".txt-type");
