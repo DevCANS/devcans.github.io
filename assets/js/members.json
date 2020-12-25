@@ -1,17 +1,23 @@
 {
     "faculty":[
         {
-            "profile": "faculty",
-            "img": "assets/img/faculty/PratyayKuila.jpeg",
-            "name": "Dr. Pratyay Kuila",
-            "designation" : "Faculty advisors"
-          },
-          {
-            "profile": "faculty",
-            "img": "assets/img//faculty/TarunBiswas.jpeg",
-            "name": "Dr. Tarun Biswas",
-            "designation" : "Faculty advisors"
-          }
+          "profile": "faculty",
+          "img": "https://nitsikkim.ac.in/img/mahesh.png",
+          "name": "Prof. Mahesh Chandra Govil",
+          "designation" : "Director, NIT Sikkim"
+        },
+        {
+          "profile": "faculty",
+          "img": "assets/img/faculty/PratyayKuila.jpeg",
+          "name": "Dr. Pratyay Kuila",
+          "designation" : "Faculty advisors"
+        },
+        {
+          "profile": "faculty",
+          "img": "assets/img//faculty/TarunBiswas.jpeg",
+          "name": "Dr. Tarun Biswas",
+          "designation" : "Faculty advisors"
+        }
     ],
     "2021": [
       {
