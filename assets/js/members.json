@@ -1,93 +1,87 @@
 {
     "faculty":[
         {
-          "profile": "mentor",
-          "img": "https://nitsikkim.ac.in/img/mahesh.png",
-          "name": "Prof. Mahesh Chandra Govil",
-          "designation" : "Director, NIT Sikkim"
-        },
-        {
           "profile": "faculty",
           "img": "assets/img/faculty/PratyayKuila.jpeg",
           "name": "Dr. Pratyay Kuila",
-          "designation" : "Faculty advisors"
+          "designation" : ""
         },
         {
           "profile": "faculty",
-          "img": "assets/img//faculty/TarunBiswas.jpeg",
-          "name": "Dr. Tarun Biswas",
-          "designation" : "Faculty advisors"
+          "img": "assets/img/faculty/PankajKumarKesarwani.jpg",
+          "name": "Dr. Pankaj K. Keserwani",
+          "designation" : ""
         }
     ],
     "2021": [
       {
-        "profile": "member",
-        "img": "assets/img/member/PokalaAnirudh.png",
-        "name": "Pokala Anirudh",
-        "designation": "Coordinator - ML, Data Science",
+        "profile":"member",
+        "img": "assets/img/member/ManishKumarPandit.jpeg",
+        "name": "Manish Kumar Pandit",
+        "designation": "DSA",
         "social": {
-          "github": "https://github.com/pokalaanirudh",
-          "linkedin": "https://www.linkedin.com/in/pokala-anirudh-2a9352152/"
-        }
-      },
-      {
-        "profile": "member",
-        "img": "assets/img/member/PrinceRaj.jpg",
-        "name": "Prince Raj",
-        "designation": "Coordinator - Web Development",
-        "social": {
-          "github": "https://github.com/princeNITian",
-          "linkedin": "https://www.linkedin.com/in/iamprinceraj/"
-        }
-      },
-      {
-        "profile": "member",
-        "img": "assets/img/member/AbhineshKumar.jpg",
-        "name": "Abhinesh Kumar",
-        "designation": "Coordinator - C++",
-        "social": {
-          "github": "#",
-          "linkedin": "https://www.linkedin.com/in/abhinesh-kumar-315808193/"
+          "github": "",
+          "linkedin": "https://www.linkedin.com/in/manish-kumar-pandit-092107214/"
         }
       },
       {
         "profile":"member",
-        "img": "assets/img/member/PrateekOraon.jpg",
-        "name": "Prateek Kumar Oraon",
-        "designation": "Coordinator - Java",
+        "img": "assets/img/member/RiyanGonsalves.jpg",
+        "name": "Riyan Gonsalves",
+        "designation": "Web Development",
         "social": {
-          "github": "https://github.com/prateekKrOraon",
-          "linkedin": "https://www.linkedin.com/in/prateekkroraon/"
+          "github": "https://github.com/optimized-riyan",
+          "linkedin": "https://www.linkedin.com/in/riyan-gonsalves-383a52231/"
         }
       },
       {
         "profile":"member",
-        "img": "assets/img/member/DhrubajitSarkar.jpg",
-        "name": "Dhrubajit Sarkar",
-        "designation": "Coordinator - Mobile App Dev.",
+        "img": "assets/img/member/RohitMohanRoy.jpeg",
+        "name": "Rohit Mohan Roy",
+        "designation": "Web Development",
         "social": {
-          "github": "https://github.com/dhruvaism",
-          "linkedin": "https://www.linkedin.com/in/dhrubajit-sarkar-453542170/"
+          "github": "https://github.com/gyrodope69",
+          "linkedin": "https://www.linkedin.com/in/rohit-roy-18a625212/"
         }
       },
       {
         "profile":"member",
-        "img": "assets/img/member/VipinYadav.jpg",
-        "name": "Vipin Yadav",
-        "designation": "Coordinator - C++",
+        "img": "assets/img/member/AmanSaurav.jpeg",
+        "name": "Aman Saurav",
+        "designation": "App Development",
         "social": {
-          "github": "https://github.com/vip529",
-          "linkedin": "https://www.linkedin.com/in/vipin-b170188/"
+          "github": "https://github.com/oops-aman",
+          "linkedin": "https://www.linkedin.com/in/aman-saurav-6ab61120b/"
         }
       },
       {
         "profile":"member",
-        "img": "assets/img/member/GirijaKar.jpg",
-        "name": "Girija Nandan Kar",
-        "designation": "Coordinator - Web Development",
+        "img": "assets/img/member/VishalKumar.jpeg",
+        "name": "Vishal Kumar",
+        "designation": "Web Development",
         "social": {
-          "github": "https://github.com/girijakar",
-          "linkedin": "https://www.linkedin.com/in/girijanandankar/"
+          "github": "https://github.com/vishal-here",
+          "linkedin": "https://www.linkedin.com/in/vishal-here-/"
+        }
+      },
+      {
+        "profile":"member",
+        "img": "assets/img/member/TathagatDev.jpeg",
+        "name": "Tathagat Dev",
+        "designation": "Cloud",
+        "social": {
+          "github": "https://github.com/tathagatdev",
+          "linkedin": "https://www.linkedin.com/in/tathagat-dev-385500208/"
+        }
+      },
+      {
+        "profile":"member",
+        "img": "assets/img/member/AshishGarg.jpeg",
+        "name": "Ashish Garg",
+        "designation": "Web Development",
+        "social": {
+          "github": "https://github.com/ashishgarg77",
+          "linkedin": "https://www.linkedin.com/in/ashish-garg-777887218/"
         }
       }
     ]
