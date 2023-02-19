@@ -286,9 +286,9 @@ function initSlider() {
             slider.style.transition = 'none';
             index = 1;
             slider.style.transform = `translateX(${-slideWidth * index}px)`;
-        }else if(slides[index].id === lastClone.id) {
+        } else if (slides[index].id === lastClone.id) {
             slider.style.transition = 'none';
-            index = slides.length-2;
+            index = slides.length-4;
             slider.style.transform = `translateX(${-slideWidth * index}px)`;
         }
     });
@@ -320,7 +320,7 @@ function startSlider() {
 
 function moveToNextSlide() {
     slides = getSlides();
-    if(index >= slides.length-1) {
+    if(index >= slides.length-4) {
         return;
     }
     index++;
