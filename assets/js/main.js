@@ -41,6 +41,7 @@ $(document).ready(function(){
     $(".tabs").tabs();
     $(".collapsible").collapsible();
     $(".tooltipped").tooltip();
+    $(".modal").modal();
 
     fetchRepos();
     fetchTeam();
@@ -90,17 +91,17 @@ function fetchRepos(force = false) {
 function updateRepos(data){
     const repoContainer = document.querySelector(".repo-container");
     data.forEach((val) => {
-        // Creating Repo card
+        /* Creating Repo card */
         let repoItem = createElement("div", {class: "col-md-6 col-lg-4 repo-item"});
         let box = createElement("div", {class: "box"});
         let icon = createElement("div", {class: "icon"});
         
-        // Fetching image for repository
+        /* Fetching image for repository */
         let iconImg = val.name.split("-")[0].toLowerCase();
         let imgSource = "";
 
         if (iconImg === "website") {
-            // For devcans website repo
+            /* For devcans website repo */
             imgSource = "assets/img/icon.png"
         } else {
             if (iconImg === "web") {
@@ -122,7 +123,7 @@ function updateRepos(data){
         repoContainer.appendChild(repoItem);
     });
 
-    // Setting up listener for show more button
+    /* Setting up listener for show more button */
     const button = document.querySelector(".more-btn");
     button.addEventListener("click", () => {
         button.childNodes[1].classList.toggle("more-btn-inactive");
@@ -231,7 +232,7 @@ function createElement(tag, options = {}, html = "") {
     return e;
 }
 
-// Slider
+/* Slider */
 let index = 1;
 let slideContainer;
 let slider;
@@ -362,54 +363,93 @@ class TypeWriter {
         this.type();
     }
 
-    // Type method
+    /* Type method */
     type() {
-        // current index of word
+        /* current index of word */
         const current = this.wordIndex % this.words.length;
-        // Get full text of current word
+        /* Get full text of current word */
         const fullText = this.words[current];
 
-        // Check if deleting
+        /* Check if deleting */
         if (this.isDeleting) {
-            // Remove char
+            /* Remove char */
             this.text = fullText.substring(0, this.text.length - 1);
         } else {
-            // Add char
+            /* Add char */
             this.text = fullText.substring(0, this.text.length + 1);
         }
 
-        // Insert text into element
+        /* Insert text into element */
         this.textElement.innerHTML = this.text;
 
-        // Initial type Speed
+        /* Initial type Speed */
         let typeSpeed = 250;
 
         if (this.isDeleting) {
             typeSpeed /= 2;
         }
 
-        // If word is complete
+        /* If word is complete */
         if (!this.isDeleting && this.text === fullText) {
-            // Make pause at end
+            /* Make pause at end */
             typeSpeed = this.wait;
-            // Set delete to true
+            /* Set delete to true */
             this.isDeleting = true;
         } else if (this.isDeleting && this.text === "") {
             this.isDeleting = false;
-            //
             this.wordIndex++;
-            // Pause before start typing
+            /* Pause before start typing */
             typeSpeed = 500;
         }
         setTimeout(() => this.type(), typeSpeed);
     }
 }
 
+function showToast(htmlData, classData = "blue white-text", icon = "info") {
+    let toastIcon = getMaterialIcon(icon, "left", false);
+    return M.toast({html: toastIcon + htmlData, classes: classData});
+}
+
+$("button.btn-selectable").click(function() {
+    $(this).toggleClass("selected").siblings().removeClass("selected");
+});
+
+$("#feedback-form").on("submit", function(e) {
+    e.preventDefault();
+
+    let form = $(this);
+    let submitBtn = form.find("button[type='submit']");
+    let modal = $("#feedback-modal");
+    let formdata = new FormData(this);
+    let quickFeedback = $("#feedback-form button.btn-selectable.selected").attr("data-value");
+    quickFeedback = (typeof quickFeedback == "undefined") ? "none" : quickFeedback;
+    formdata.append("quick-feedback", quickFeedback);
+
+    $.ajax({
+        url: "url-to-submit-feedback",
+        data: formdata,
+        method: "POST",
+        timeout: 15000,
+        contentType: false,
+        processData: false,
+        beforeSend: function() {
+            submitBtn.html("Submitting...").attr("disabled", true);
+        }
+    }).done(function() {
+        showToast("Feedback Submitted!", "green", "done");
+    }).fail(function() {
+        showToast("Failed to submit feedback!", "red", "error");
+    }).always(function() {
+        modal.modal("close");
+        submitBtn.html("Submit").attr("disabled", false);
+    });
+});
+
 function init() {
     const textElement = document.querySelector(".txt-type");
     const words = JSON.parse(textElement.getAttribute("data-words"));
     const wait = textElement.getAttribute("data-wait");
-    // init TypeWriter
+    /* init TypeWriter */
 
     new TypeWriter(textElement, words, wait);
 }
