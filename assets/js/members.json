@@ -23,7 +23,7 @@
     "lead": [
       {
         "profile":"lead",
-        "img": "assets/img/lead/Harshit.png",
+        "img": "assets/img/lead/Harshit.jpeg",
         "name": "Harshit Vyas",
         "designation": "Cybersecurity",
         "position": "Secretary",
@@ -236,8 +236,8 @@
       },
       {
         "profile":"member",
-        "img": "assets/img/member/susheel.jpg",
-        "name": "Susheel Kumar Gupta",
+        "img": "assets/img/member/sushil.jpeg",
+        "name": "Sushil Kumar Gupta",
         "designation": "Full Stack / UI UX",
         "position": "",
         "social": {
@@ -269,4 +269,5 @@
       }
     ]
 }
+
 
