@@ -34,7 +34,7 @@
       },
       {
         "profile":"lead",
-        "img": "assets/img/lead/vipin.png",
+        "img": "assets/img/lead/vipin.jpeg",
         "name": "Vipin Mishra ",
         "designation": "Cloud Systems",
         "position": "Treasurer",
@@ -269,3 +269,4 @@
       }
     ]
 }
+
