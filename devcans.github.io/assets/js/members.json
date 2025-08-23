@@ -1,0 +1,271 @@
+{
+    "faculty":[
+        {
+          "profile": "faculty",
+          "img": "assets/img/faculty/PratyayKulia.jpeg",
+          "name": "Dr. Pratyay Kuila",
+          "designation" : ""
+        },
+        {
+          "profile": "faculty",
+          "img": "assets/img/faculty/BamBahadur.jpg",
+          "name": "Dr. Bam Bahadur Sinha",
+          "designation" : ""
+        },
+        {
+          "profile": "faculty",
+          "img": "assets/img/faculty/deekshaRangwani.jpeg",
+          "name": "Dr. Diksha Rangwani",
+          "designation" : ""
+        }
+
+    ],
+    "lead": [
+      {
+        "profile":"lead",
+        "img": "assets/img/lead/Harshit.png",
+        "name": "Harshit Vyas",
+        "designation": "Cybersecurity",
+        "position": "Secretary",
+        "social": {
+          "github": "https://github.com/Harshit272004",
+          "linkedin": "https://www.linkedin.com/in/harshit-vyas-330066257/"
+        }
+      },
+      {
+        "profile":"lead",
+        "img": "assets/img/lead/vipin.png",
+        "name": "Vipin Mishra ",
+        "designation": "Cloud Systems",
+        "position": "Treasurer",
+        "social": {
+          "github": "https://github.com/optimized-riyan",
+          "linkedin": "https://www.linkedin.com/in/vipin-545347km/"
+        }
+      },
+      {
+        "profile":"lead",
+        "img": "assets/img/lead/vidhiDidi.png",
+        "name": "Vidhi Verma",
+        "designation": "Web Development",
+        "position": "Convener",
+        "social": {
+          "github": "https://github.com/gyrodope69",
+          "linkedin": "https://www.linkedin.com/in/vidhi-verma-8a4976285/"
+        }
+      }
+      
+    ],
+    "member":[
+      
+      {
+        "profile":"member",
+        "img": "assets/img/member/sharim.png",
+        "name": "Sharim Farhan",
+        "designation": "Web Development",
+        "position": "",
+        "social": {
+          "github": "https://github.com/gyrodope69",
+          "linkedin": "https://www.linkedin.com/in/sharim-farhan-414094294/"
+        }
+      },
+      {
+        "profile":"member",
+        "img": "assets/img/member/siddarth.png",
+        "name": "Siddharth Choudhary",
+        "designation": "Devops",
+        "position": "",
+        "social": {
+          "github": "https://github.com/gyrodope69",
+          "linkedin": "https://www.linkedin.com/in/siddharth-choudhary-77483228b/"
+        }
+      },
+      {
+        "profile":"member",
+        "img": "assets/img/member/pranjal.png",
+        "name": "Pranjal Rawat",
+        "designation": "DSA",
+        "position": "",
+        "social": {
+          "github": "https://github.com/gyrodope69",
+          "linkedin": "https://www.linkedin.com/in/pranjal-rawat-2a945a325/"
+        }
+      },
+      {
+        "profile":"member",
+        "img": "assets/img/member/ujjwal.png",
+        "name": "Ujjwal Kumar Rajak",
+        "designation": "Web Development",
+        "position": "",
+        "social": {
+          "github": "https://github.com/gyrodope69",
+          "linkedin": "https://www.linkedin.com/in/ujjwal-kumar-rajak/"
+        }
+      },
+      {
+        "profile":"member",
+        "img": "assets/img/member/ayan.jpg",
+        "name": "Ayan Roy",
+        "designation": "Data Science",
+        "position": "",
+        "social": {
+          "github": "https://github.com/gyrodope69",
+          "linkedin": "https://www.linkedin.com/in/ujjwal-kumar-rajak/"
+        }
+      },
+      {
+        "profile":"member",
+        "img": "assets/img/member/durga.jpg",
+        "name": "Valle Durga Prasad",
+        "designation": "Data Science",
+        "position": "",
+        "social": {
+          "github": "https://github.com/gyrodope69",
+          "linkedin": "https://www.linkedin.com/in/ujjwal-kumar-rajak/"
+        }
+      },
+      {
+        "profile":"member",
+        "img": "assets/img/member/gaurav.jpg",
+        "name": "Gaurav Kumar Choudhary",
+        "designation": "Data Science & DSA",
+        "position": "",
+        "social": {
+          "github": "https://github.com/gyrodope69",
+          "linkedin": "https://www.linkedin.com/in/ujjwal-kumar-rajak/"
+        }
+      },
+      {
+        "profile":"member",
+        "img": "assets/img/member/gnana.jpg",
+        "name": "A. Gnana Prasad",
+        "designation": "Web Development",
+        "position": "",
+        "social": {
+          "github": "https://github.com/gyrodope69",
+          "linkedin": "https://www.linkedin.com/in/ujjwal-kumar-rajak/"
+        }
+      },
+      {
+        "profile":"member",
+        "img": "assets/img/member/mukul.jpg",
+        "name": "Mukul Kumar",
+        "designation": "Competitive Programming",
+        "position": "",
+        "social": {
+          "github": "https://github.com/gyrodope69",
+          "linkedin": "https://www.linkedin.com/in/ujjwal-kumar-rajak/"
+        }
+      },
+      {
+        "profile":"member",
+        "img": "assets/img/member/rajesh.jpg",
+        "name": "Siddareddy Rajesh Reddy",
+        "designation": "Web Development",
+        "position": "",
+        "social": {
+          "github": "https://github.com/gyrodope69",
+          "linkedin": "https://www.linkedin.com/in/ujjwal-kumar-rajak/"
+        }
+      },
+      {
+        "profile":"member",
+        "img": "assets/img/member/sathvik.jpg",
+        "name": "Sathvik Choudhary",
+        "designation": "Generative AI",
+        "position": "",
+        "social": {
+          "github": "https://github.com/gyrodope69",
+          "linkedin": "https://www.linkedin.com/in/ujjwal-kumar-rajak/"
+        }
+      },
+      {
+        "profile":"member",
+        "img": "assets/img/member/satya.jpg",
+        "name": "Satya Ranjan Barik",
+        "designation": "DSA & AI/ML",
+        "position": "",
+        "social": {
+          "github": "https://github.com/gyrodope69",
+          "linkedin": "https://www.linkedin.com/in/ujjwal-kumar-rajak/"
+        }
+      },
+      {
+        "profile":"member",
+        "img": "assets/img/member/shirshak.jpg",
+        "name": "Shirshak Sinha",
+        "designation": "Web Development",
+        "position": "",
+        "social": {
+          "github": "https://github.com/gyrodope69",
+          "linkedin": "https://www.linkedin.com/in/ujjwal-kumar-rajak/"
+        }
+      },
+      {
+        "profile":"member",
+        "img": "assets/img/member/shishupal.jpg",
+        "name": "Shishupal Kumar",
+        "designation": "AI & ML",
+        "position": "",
+        "social": {
+          "github": "https://github.com/gyrodope69",
+          "linkedin": "https://www.linkedin.com/in/ujjwal-kumar-rajak/"
+        }
+      },
+      {
+        "profile":"member",
+        "img": "assets/img/member/sohit.jpg",
+        "name": "Sohit",
+        "designation": "Competitive Programming",
+        "position": "",
+        "social": {
+          "github": "https://github.com/gyrodope69",
+          "linkedin": "https://www.linkedin.com/in/ujjwal-kumar-rajak/"
+        }
+      },
+      {
+        "profile":"member",
+        "img": "assets/img/member/sulav.jpg",
+        "name": "Sulav Singhal",
+        "designation": "Web Development",
+        "position": "",
+        "social": {
+          "github": "https://github.com/gyrodope69",
+          "linkedin": "https://www.linkedin.com/in/ujjwal-kumar-rajak/"
+        }
+      },
+      {
+        "profile":"member",
+        "img": "assets/img/member/susheel.jpg",
+        "name": "Susheel Kumar Gupta",
+        "designation": "Full Stack / UI UX",
+        "position": "",
+        "social": {
+          "github": "https://github.com/gyrodope69",
+          "linkedin": "https://www.linkedin.com/in/ujjwal-kumar-rajak/"
+        }
+      },
+      {
+        "profile":"member",
+        "img": "assets/img/member/yash.jpg",
+        "name": "Yash Gupta ",
+        "designation": "Linux and Networking",
+        "position": "",
+        "social": {
+          "github": "https://github.com/gyrodope69",
+          "linkedin": "https://www.linkedin.com/in/ujjwal-kumar-rajak/"
+        }
+      },
+      {
+        "profile":"member",
+        "img": "assets/img/member/raj.png",
+        "name": "Raj Kumar Prasad",
+        "designation": "Networks",
+        "position": "",
+        "social": {
+          "github": "https://github.com/gyrodope69",
+          "linkedin": "https://www.linkedin.com/in/rajkrprasad3344/"
+        }
+      }
+    ]
+}
