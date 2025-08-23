@@ -174,8 +174,10 @@ function setMember(info){
     
     const name = createElement("h3",null,info.name);
     const designation = createElement("span",null,info.designation);
+    const position = createElement("span",null,info.position);
     const infoContent = createElement("div", {class: "member-info-content"});
     infoContent.appendChild(name);
+    infoContent.appendChild(position);
     infoContent.appendChild(designation);
     if (info.social != null){
         const social = createElement("div", {class: "social"});

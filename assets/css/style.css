@@ -409,7 +409,7 @@ main {
 
 #team .member .member-info-content {
     transition: margin 0.2s;
-    height: 40px;
+    height: 45px;
     transition: height 0.4s;
 }
 
@@ -418,7 +418,7 @@ main {
 }
 
 #team .member:hover .member-info-content {
-    height: 80px;
+    height: 90px;
 }
 
 #team .member h3 {
