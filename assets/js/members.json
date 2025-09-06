@@ -4,19 +4,19 @@
           "profile": "faculty",
           "img": "assets/img/faculty/PratyayKulia.jpeg",
           "name": "Dr. Pratyay Kuila",
-          "designation" : ""
+          "designation" : "President"
         },
         {
           "profile": "faculty",
           "img": "assets/img/faculty/BamBahadur.jpg",
           "name": "Dr. Bam Bahadur Sinha",
-          "designation" : ""
+          "designation" : "Vice President"
         },
         {
           "profile": "faculty",
           "img": "assets/img/faculty/deekshaRangwani.jpeg",
           "name": "Dr. Diksha Rangwani",
-          "designation" : ""
+          "designation" : "Faculty Coordinator"
         }
 
     ],
@@ -236,8 +236,8 @@
       },
       {
         "profile":"member",
-        "img": "assets/img/member/sushil.jpeg",
-        "name": "Sushil Kumar Gupta",
+        "img": "assets/img/member/susheel.jpg",
+        "name": "Susheel Kumar Gupta",
         "designation": "Full Stack / UI UX",
         "position": "",
         "social": {
@@ -269,5 +269,3 @@
       }
     ]
 }
-
-
