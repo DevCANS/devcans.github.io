@@ -87,37 +87,62 @@ function fetchRepos(force = false) {
     });
 }
 
-function updateRepos(data){
+function updateRepos(data) {
     const repoContainer = document.querySelector(".repo-container");
+
+    // Define custom fallback icons
+    const defaultIcons = {
+        "sandbox": "assets/img/icons/sandbox.png",
+        "udgam2k23app": "assets/img/icons/udgam.jfif",
+        "devcans.github.io": "assets/img/icon.png", // already your website repo
+        "default": "assets/img/default-icon.png"
+    };
+
     data.forEach((val) => {
         // Creating Repo card
-        let repoItem = createElement("div", {class: "col-md-6 col-lg-4 repo-item"});
-        let box = createElement("div", {class: "box"});
-        let icon = createElement("div", {class: "icon"});
-        
+        let repoItem = createElement("div", { class: "col-md-6 col-lg-4 repo-item" });
+        let box = createElement("div", { class: "box" });
+        let icon = createElement("div", { class: "icon" });
+
         // Fetching image for repository
         let iconImg = val.name.split("-")[0].toLowerCase();
         let imgSource = "";
 
         if (iconImg === "website") {
             // For devcans website repo
-            imgSource = "assets/img/icon.png"
+            imgSource = "assets/img/icon.png";
         } else {
             if (iconImg === "web") {
                 iconImg = "html";
             }
             imgSource = `https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/${iconImg}/${iconImg}.png`;
         }
-        icon.appendChild(createElement("img", {src: imgSource, class: "icon", style: "background: #FCEEF3;"}));
+
+        // Choose fallback based on repo name or default
+        let fallback = defaultIcons[val.name.toLowerCase()] || defaultIcons["default"];
+
+        // Append icon with fallback handler
+        icon.appendChild(
+            createElement("img", {
+                src: imgSource,
+                class: "icon",
+                style: "background: #FCEEF3;",
+                onerror: `this.onerror=null; this.src='${fallback}';`
+            })
+        );
+
         box.appendChild(icon);
-        let h3 = createElement("h3", {class: "title"});
+
+        let h3 = createElement("h3", { class: "title" });
         h3.innerHTML = `
             <a href="${val.html_url}" target="_blank">${val.name.replaceAll("-", " ").toUpperCase()}</a>
         `;
         box.appendChild(h3);
-        let p = createElement("p", {class: "description"});
+
+        let p = createElement("p", { class: "description" });
         p.innerHTML = val.description;
         box.appendChild(p);
+
         repoItem.appendChild(box);
         repoContainer.appendChild(repoItem);
     });
@@ -129,7 +154,7 @@ function updateRepos(data){
         let text = button.childNodes[3].textContent;
 
         text == "Show More" ? text = "Show Less" : text = "Show More";
-        
+
         button.childNodes[3].textContent = text;
         button.childNodes[5].classList.toggle("more-btn-inactive");
 
@@ -140,6 +165,7 @@ function updateRepos(data){
         }
     });
 }
+
 
 function fetchTeam(force = false) {
     fetch("./assets/js/members.json")
