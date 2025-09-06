@@ -28,6 +28,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x:hidden ;
 }
 
 body {
@@ -36,6 +37,8 @@ body {
     min-height: 100vh;
     flex-direction: column;
     background: #333;
+    overflow-x:hidden ;
+
 }
 
 main {
