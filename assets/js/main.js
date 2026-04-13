@@ -1,10 +1,6 @@
-class localStorage {
+class StorageManager {
     constructor() {
-        if (typeof(Storage) === "undefined") {
-            this.state = false;
-        } else {
-            this.state = true;
-        }
+        this.state = typeof(Storage) !== "undefined";
     }
 
     getState() {
@@ -34,7 +30,7 @@ class localStorage {
     }
 }
 
-let ls = new localStorage();
+let ls = new StorageManager();
 
 $(document).ready(function(){
     $(".sidenav").sidenav();
@@ -127,6 +123,8 @@ function updateRepos(data) {
                 src: imgSource,
                 class: "icon",
                 style: "background: #FCEEF3;",
+                alt: val.name + " icon",
+                loading: "lazy",
                 onerror: `this.onerror=null; this.src='${fallback}';`
             })
         );
@@ -140,7 +138,7 @@ function updateRepos(data) {
         box.appendChild(h3);
 
         let p = createElement("p", { class: "description" });
-        p.innerHTML = val.description;
+        p.textContent = val.description || "";
         box.appendChild(p);
 
         repoItem.appendChild(box);
@@ -197,54 +195,60 @@ function updateTeam(data){
 
 function setMember(info){
     let teamContainer = document.querySelector('#'+info.profile+'-container');
-    
-    const name = createElement("h3",null,info.name);
-    const designation = createElement("span",null,info.designation);
-    const position = createElement("span",null,info.position);
+
     const infoContent = createElement("div", {class: "member-info-content"});
-    infoContent.appendChild(name);
-    infoContent.appendChild(position);
-    infoContent.appendChild(designation);
-    if (info.social != null){
+
+    // Name
+    infoContent.appendChild(createElement("h3", null, info.name));
+
+    // Role line: "Position - Designation", "Position", or "Designation"
+    let roleText = "";
+    if (info.position && info.designation) {
+        roleText = info.position + " - " + info.designation;
+    } else {
+        roleText = info.position || info.designation || "";
+    }
+    if (roleText) {
+        infoContent.appendChild(createElement("span", null, roleText));
+    }
+
+    // Social links
+    if (info.social != null) {
         const social = createElement("div", {class: "social"});
         Object.keys(info.social).map((key) => {
             social.appendChild(createElement(
-                "a", 
+                "a",
                 {
                     href: info.social[key],
-                    target: "_blank"
+                    target: "_blank",
+                    "aria-label": info.name + " " + key
                 },
-                createElement(
-                    "i",
-                    {class: `fa fa-${key}`}
-                )
+                createElement("i", {class: `fa fa-${key}`})
             ));
         });
         infoContent.appendChild(social);
     }
-    const memberInfo = createElement("div",{class: "member-info"});
+
+    const memberInfo = createElement("div", {class: "member-info"});
     memberInfo.appendChild(infoContent);
-    const img = createElement(
-        "img", 
-        {
-            class: "img-fluid",
-            src: info.img,
-            alt: info.name
-        }
-    );
+
+    const img = createElement("img", {
+        class: "img-fluid",
+        src: info.img,
+        alt: info.name,
+        loading: "lazy"
+    });
 
     const memberDiv = createElement("div", {class: "member"});
     memberDiv.appendChild(img);
     memberDiv.appendChild(memberInfo);
-    const memberContainer = createElement(
-        "div",
-        {
-            class: info.profile==="member"? "col-lg-3 col-md-4 col-sm-6 col-6 slide" : "col-lg-3 col-md-4 col-sm-6 col-6"
-        }
-    );
+
+    const memberContainer = createElement("div", {
+        class: info.profile === "member" ? "col-lg-3 col-md-4 col-sm-6 col-6 slide" : "col-lg-3 col-md-4 col-sm-6 col-6"
+    });
     memberContainer.appendChild(memberDiv);
     teamContainer.appendChild(memberContainer);
-};
+}
 
 function createElement(tag, options = {}, html = "") {
     let e = document.createElement(tag);
@@ -331,6 +335,15 @@ function initSlider() {
     
     nextBtn.addEventListener('click', moveToNextSlide);
     prevBtn.addEventListener('click', moveToPrevSlide);
+
+    // Keyboard navigation for slider accessibility
+    slideContainer.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') {
+            moveToNextSlide();
+        } else if (e.key === 'ArrowLeft') {
+            moveToPrevSlide();
+        }
+    });
 
     startSlider();
 

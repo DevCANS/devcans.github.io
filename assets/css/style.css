@@ -1,9 +1,22 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway:200,100,400");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;400;500;700&display=swap");
+
+/* CSS Custom Properties */
+:root {
+    --color-primary: #FF5722;
+    --color-bg-dark: #333333;
+    --color-bg-darker: #212121;
+    --color-bg-darkest: #111111;
+    --color-text-light: #EEEEEE;
+    --color-text-muted: #CCCCCC;
+    --color-text-dim: #DDDDDD;
+    --font-main: "Raleway", sans-serif;
+}
 
 @font-face {
     font-family: "Material Icons";
     font-style: normal;
     font-weight: 400;
+    font-display: swap;
     src: url(../fonts/MaterialIcons-Regular.ttf) format("truetype");
 }
 
@@ -26,17 +39,45 @@
     -webkit-font-feature-settings: "liga";
 }
 
+/* Skip to content - accessibility */
+.skip-to-content {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-primary);
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    z-index: 200;
+    border-radius: 0 0 4px 4px;
+    font-family: var(--font-main);
+    text-decoration: none;
+    transition: top 0.2s;
+}
+
+.skip-to-content:focus {
+    top: 0;
+}
+
+/* Focus styles for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
 html {
     scroll-behavior: smooth;
     overflow-x:hidden ;
 }
 
 body {
-    font-family: "Raleway", sans-serif;
+    font-family: var(--font-main);
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background: #333;
+    background: var(--color-bg-dark);
     overflow-x:hidden ;
 
 }
@@ -121,7 +162,7 @@ main {
 }
 
 
-.msg h1, h2 {
+.msg h1, .msg h2 {
     font-family: "Raleway", sans-serif;
     font-weight: 500;
     margin: 0.4rem;
@@ -187,19 +228,46 @@ main {
 }
 
 .box {
-    padding: 30px;
+    padding: 35px 25px;
     position: relative;
-    overflow: hidden;
-    border-radius: 10px;
+    overflow: visible;
+    border-radius: 12px;
     margin: 0 10px 40px 10px;
-    background: #333;
-    box-shadow: 0 0px 10px 0px rgba(33, 33, 33, 0.3);
-    transition: all 0.3s ease-in-out;
+    background: #252525;
+    border-top: none;
+    box-shadow: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     text-align: center;
 }
 
+.box::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    border-radius: 12px 12px 0 0;
+    background: linear-gradient(90deg, var(--color-primary), #ff9800);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.box:hover::after {
+    transform: scaleX(1);
+}
+
 .box:hover {
-    -webkit-transform: scale(1.1);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 87, 34, 0.15);
+    background: #2a2a2a;
+}
+
+.box .icon {
+    transition: transform 0.3s ease;
+}
+
+.box:hover .icon {
     transform: scale(1.1);
 }
 
@@ -221,13 +289,15 @@ main {
 }
 
 .icon {
-    margin: 0 auto 15px auto;
+    margin: 0 auto 20px auto;
     padding-top: 12px;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    border-radius: 12px;
+    width: 65px;
+    height: 65px;
 }
 
 #about .icon i {
@@ -310,7 +380,7 @@ main {
 
 .repo-container {
     overflow: hidden;
-    max-height: 350px;
+    max-height: 700px;
     transition: max-height 0.3s;
     padding-top: 50px;
 }
@@ -355,9 +425,10 @@ main {
 }
 
 #team .img-fluid {
-    max-height: 221px;
     width: 100%;
+    height: 100%;
     object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
 #faculty-container {
@@ -386,48 +457,41 @@ main {
     margin-bottom: 20px;
     position: relative;
     overflow: hidden;
+    border-radius: 12px;
+    height: 320px;
+    cursor: pointer;
+}
+
+#team .member:hover .img-fluid {
+    transform: scale(1.08);
 }
 
 #team .member .member-info {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
+    align-items: flex-end;
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    transition: 0.2s;
-    padding: 15px 0;
-    background: rgba(29, 28, 41, 0.6);
-}
-
-#team .member .member-info-content {
-    transition: margin 0.2s;
-    height: 45px;
-    transition: height 0.4s;
+    padding: 25px 15px 15px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85) 40%);
+    transform: translateY(30px);
+    transition: transform 0.4s ease;
 }
 
 #team .member:hover .member-info {
-    transition: 0.4s;
+    transform: translateY(0);
 }
 
-#team .member:hover .member-info-content {
-    height: 90px;
+#team .member .member-info-content {
+    width: 100%;
 }
 
 #team .member h3 {
-    font-family: "Raleway", sans-serif;
+    font-family: var(--font-main);
     font-weight: 700;
-    margin-bottom: 2px;
+    margin-bottom: 3px;
     font-size: 18px;
     color: #fff;
 }
@@ -436,34 +500,46 @@ main {
     font-style: italic;
     display: block;
     font-size: 13px;
-    color: #FFFFFF;
+    color: var(--color-primary);
+    margin-bottom: 2px;
 }
 
 #team .member .social {
-    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 10px;
+    height: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease 0.15s;
 }
-  
+
+#team .member:hover .social {
+    opacity: 1;
+}
+
 #team .member .social a {
-    transition: none;
-    color: #fff;
+    color: #ccc;
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.2s;
 }
 
 #team .member .social a:hover {
-    color: #FF5722;
+    color: var(--color-primary);
 }
-  
+
 #team .member .social a i {
-    font-size: 18px;
-    margin: 0 5px;
+    font-size: 16px;
 }
 
 @media (max-width: 1200px) {
     #team .member {
-        max-height: 180px;
+        height: 260px;
     }
 
     #team .member h3 {
-        font-size: 17px;
+        font-size: 16px;
     }
 
     #team .member span {
@@ -473,11 +549,17 @@ main {
 
 @media (max-width: 992px) {
     #team .member {
-        max-height: 175px;
+        height: 240px;
+    }
+}
+
+@media (max-width: 768px) {
+    #team .member {
+        height: 220px;
     }
 
     #team .member h3 {
-        font-size: 17px;
+        font-size: 15px;
     }
 
     #team .member span {
@@ -485,24 +567,17 @@ main {
     }
 }
 
-@media (max-width: 768px) {
-    #team .member {
-        max-height: 200px;
-    }
-
-    #team .member h3 {
-        font-size: 16px;
-    }
-
-    #team .member span {
-        font-size: 12px;
-    }
-
-}
-
 @media (max-width: 576px) {
     #team .member {
-        max-height: 34vw;
+        height: 200px;
+    }
+
+    #team .member .member-info {
+        transform: translateY(0);
+    }
+
+    #team .member .social {
+        opacity: 1;
     }
 }
 
@@ -528,9 +603,7 @@ main {
     color: white;
 }
 
-#next-btn:focus, #prev-btn:focus{
-    outline: none;
-}
+/* focus-visible handles keyboard-only focus rings via the global rule */
 
 #next-btn:hover, #prev-btn:hover{
     color: #FF5722;
@@ -654,24 +727,91 @@ main {
     color: #DDDDDD;
 }
 
+/* CTA Button */
+.btn-cta {
+    display: inline-block;
+    align-self: flex-start;
+    margin-top: 1.5rem;
+    padding: 0.75rem 2rem;
+    background: var(--color-primary);
+    color: #fff;
+    font-family: var(--font-main);
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-cta:hover {
+    background: #E64A19;
+    transform: translateY(-2px);
+    color: #fff;
+}
+
 /* Media Queries */
+
+@media(max-width: 992px) {
+    .msg {
+        margin: 0 20px;
+        padding: 0 1.5rem;
+    }
+
+    .msg h1 {
+        font-size: 2.8rem;
+    }
+
+    .section-header p {
+        padding: 0 1rem 30px 1rem;
+    }
+
+    #about .row,
+    #repositories .row {
+        overflow: hidden;
+    }
+}
+
 @media(max-width: 800px) {
     .container{
         padding: 0 1rem;
     }
 
+    .msg {
+        margin: 0 10px;
+        padding: 0 1rem;
+    }
+
     .msg h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
+    }
+
+    .msg h2 {
+        font-size: 1.5rem;
     }
 
     .welcome-msg {
         font-size: 16px;
     }
+
+    .section-header p {
+        font-size: 16px;
+        padding: 0 0.5rem 30px 0.5rem;
+    }
+
+    .box:hover {
+        transform: translateY(-6px);
+    }
+
+    .repo-container {
+        max-height: 500px;
+    }
 }
 
 @media(max-width: 500px) {
     .msg h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .msg h2 {
@@ -680,5 +820,18 @@ main {
 
     .welcome-msg {
         font-size: 14px;
+    }
+
+    .btn-cta {
+        padding: 0.6rem 1.5rem;
+        font-size: 14px;
+    }
+
+    .box:hover {
+        transform: translateY(-4px);
+    }
+
+    .repo-container {
+        max-height: 400px;
     }
 }
